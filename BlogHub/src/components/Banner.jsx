@@ -5,7 +5,9 @@ import Navbar from './Navbar'
 function Banner() {
 
     return (
-        <Navbar/>
+        <div className="banner">
+             <Navbar/>
+        </div>
     )
 }
 
