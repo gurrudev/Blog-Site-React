@@ -8,6 +8,7 @@ header{
     background: rgba(0, 0, 0, 0);
     position: fixed;
     top: 10px;
+    width: 80%;
 }
 
 .logo{

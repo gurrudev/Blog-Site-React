@@ -9,9 +9,35 @@
     align-items: center;
 }
 
-
-.banner-text{
+.banner-text {
     color:#fff ;
     font-weight: bold;
+    
+}
+
+.banner-text h1 {
+    font-family: customeBold;
     text-transform: uppercase;
 }
+
+.banner-text h3 {
+    font-family: customeSBold;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.banner-text button{
+    margin-top: 20px;
+    background: #fff;
+    color: black;
+    font-family: customeRegular;
+    
+}
+
+.banner-text button:hover{
+    background: #000000;
+    color: rgb(255, 253, 253);
+}
+

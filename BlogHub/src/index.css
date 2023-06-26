@@ -1,4 +1,7 @@
-
+*{
+    margin: 0;
+    padding: 0;
+}
 
 @font-face {
     font-family: customeRegular;
@@ -19,7 +22,4 @@
     src: url(./assets/fonts/OpenSans-Italic.ttf);
 }
 
-*{
-    margin: 0;
-    padding: 0;
-}
+

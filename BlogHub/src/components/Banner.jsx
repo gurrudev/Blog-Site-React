@@ -9,7 +9,9 @@ function Banner() {
             <Navbar />
             {/* <div className="banner-content"> */}
                 <div className="banner-text">
-                    <h1>Experience the beauty of diverse perspectives.</h1>
+                    <h1>Experience the beauty of diverse perspectives</h1>
+                    <h3>Write Your Thoaughts</h3>
+                    <button>Get Started</button>
                 </div>
             {/* </div> */}
         </div>
