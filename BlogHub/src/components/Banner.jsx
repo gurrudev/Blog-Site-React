@@ -6,7 +6,12 @@ function Banner() {
 
     return (
         <div className="banner">
-             <Navbar/>
+            <Navbar />
+            {/* <div className="banner-content"> */}
+                <div className="banner-text">
+                    <h1>Experience the beauty of diverse perspectives.</h1>
+                </div>
+            {/* </div> */}
         </div>
     )
 }

@@ -1,3 +1,24 @@
+
+
+@font-face {
+    font-family: customeRegular;
+    src: url(./assets/fonts/OpenSans-Regular.ttf);
+}
+@font-face {
+    font-family: customeBold;
+    src: url(./assets/fonts/OpenSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: customeSBold;
+    src: url(./assets/fonts/OpenSans-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: customeItalic;
+    src: url(./assets/fonts/OpenSans-Italic.ttf);
+}
+
 *{
     margin: 0;
     padding: 0;

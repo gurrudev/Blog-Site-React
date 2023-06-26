@@ -3,22 +3,24 @@ import './Navbar.css'
 
 function Navbar() {
   return (
+    <>
     <header>
       <div className="logo">
         <p>lo</p>
       </div>
       <nav>
         <ul>
-          <li><a href="">Destination</a></li>
-          <li><a href="">Food</a></li>
-          <li><a href="">Well Being</a></li>
-          <li><a href="">Sports</a></li>
-          <li><a href="">Family</a></li>
-          <li><a href="">Lifestyle</a></li>
+          <li><a href="">DESTINATION</a></li>
+          <li><a href="">FOOD</a></li>
+          <li><a href="">WELL BEING</a></li>
+          <li><a href="">SPORTS</a></li>
+          <li><a href="">FAMILY</a></li>
+          <li><a href="">LIFESTYLE</a></li>
         </ul>
       </nav>
-      <button><a href="">Get Started</a></button>
+      <button><a href="">GET STARTED</a></button>
     </header>
+    </>
   )
 }
 
