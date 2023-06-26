@@ -1,5 +1,5 @@
-.banner{
-    background: url('../assets/img/banner.jpg') no-repeat;
+.banner{    
+    background: url('../assets/img/banner.jpg') no-repeat ;
     height: 80vh;
     background-size: cover;
     background-position: center;
@@ -20,6 +20,7 @@
 
 .banner-text h1 {
     font-family: customeBold;
+    /* font-size: xx-large; */
     text-transform: uppercase;
 }
 

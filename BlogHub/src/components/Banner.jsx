@@ -5,6 +5,7 @@ import Navbar from './Navbar'
 function Banner() {
 
     return (
+
         <div className="banner">
             <Navbar />
 
@@ -13,8 +14,9 @@ function Banner() {
                 <h3>Write Your Thoaughts</h3>
                 <button>Get Started</button>
             </div>
-
+            
         </div>
+
     )
 }
 
