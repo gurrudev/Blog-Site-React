@@ -12,7 +12,10 @@
 .banner-text {
     color:#fff ;
     font-weight: bold;
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .banner-text h1 {
@@ -33,11 +36,9 @@
     background: #fff;
     color: black;
     font-family: customeRegular;
-    
 }
 
 .banner-text button:hover{
     background: #000000;
     color: rgb(255, 253, 253);
 }
-
