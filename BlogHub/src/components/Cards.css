@@ -13,21 +13,45 @@
   flex-direction: column;
 }
 
+.card a{
+    
+}
+
 .card img {
   width: 100%
 }
 
 .card h2 {
-    font-family: customeSBold;
+    font-family: customeBold;
     margin-top: 15px;
 }
 
+.user-details{
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-name{
+    font-family: customeSBold;
+    margin-top: 10px;
+}
+
+.des{
+    font-family: customeRegular;
+    margin-top: 10px;
+}
+
+.date{
+    font-family: customeItalic;
+    margin-top: 10px;
+}
 
 @media (max-width: 1470px) {
   .card-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 @media (max-width: 990px) {
   .card-container {
     grid-template-columns: repeat(1, 1fr);
