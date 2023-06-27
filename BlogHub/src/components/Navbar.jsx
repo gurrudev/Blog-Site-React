@@ -18,7 +18,7 @@ function Navbar() {
           <li><a href="">LIFESTYLE</a></li>
         </ul>
       </nav>
-      <button><a href="">GET STARTED</a></button>
+      <button>GET STARTED</button>
     </header>
     </>
   )

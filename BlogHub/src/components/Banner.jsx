@@ -14,7 +14,7 @@ function Banner() {
                 <h3>Write Your Thoaughts</h3>
                 <button>Get Started</button>
             </div>
-            
+            <div className="overlay"></div>
         </div>
 
     )
