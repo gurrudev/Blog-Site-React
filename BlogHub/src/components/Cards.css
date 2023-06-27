@@ -5,3 +5,7 @@
 .card{
     width:24%;
 }
+
+.card img{
+    height:18rem;
+}
