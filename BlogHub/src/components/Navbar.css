@@ -7,9 +7,9 @@ header{
     padding: 30px 10%;
     background: rgba(0, 0, 0, 0);
     position: fixed;
-    top: 10px;
+    top: 0;
     width: 80%;
-    z-index: 3;
+    z-index: 4;
 }
 
 .logo{
@@ -17,14 +17,14 @@ header{
     font-weight: bold;
     color: white;
     cursor: pointer;
-    font-family: customeBold;
+    font-family: Galins;
 }
 
 nav li{
     display: inline;
     list-style: none;
     padding: 0px 20px;
-    font-family: customeSBold;
+    font-family: europaBold;
 }
 
 nav a{
@@ -42,7 +42,8 @@ button{
     color: white;
     border: none;
     padding: 9px 25px;
-    font-family: customeRegular;
+    font-family: europaBold;
+    cursor: pointer;
 }
 
 button:hover{

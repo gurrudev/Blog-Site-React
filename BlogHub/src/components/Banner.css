@@ -33,13 +33,13 @@
 }
 
 .banner-text h1 {
-    font-family: customeBold;
+    font-family: europaBold;
     font-size: 40px;
     text-transform: uppercase;
 }
 
 .banner-text h3 {
-    font-family: customeSBold;
+    font-family: europaBold;
     /* text-transform: uppercase; */
     display: flex;
     font-size: 30px;
@@ -51,7 +51,7 @@
     margin-top: 20px;
     background: #fff;
     color: black;
-    font-family: customeRegular;
+    font-family: europaBold;
 }
 
 .banner-text button:hover{
