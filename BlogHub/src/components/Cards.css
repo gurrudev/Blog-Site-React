@@ -1,11 +1,35 @@
-.card-container{
-    margin: 50px;
+.card-container {
+  /* margin: 50px; */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 3rem 5rem;
 }
 
-.card{
-    width:24%;
+.card {
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
 }
 
-.card img{
-    height:18rem;
+.card img {
+  width: 100%
+}
+
+.card h2 {
+    font-family: customeSBold;
+    margin-top: 15px;
+}
+
+
+@media (max-width: 1470px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 990px) {
+  .card-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
