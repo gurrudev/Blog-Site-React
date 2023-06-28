@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     color: #fff;
-    padding: 50px ;
+    padding: 40px ;
 }
 
 .footer a{
@@ -15,4 +15,13 @@
 .footer span{
     font-family: customeRegular;
     font-weight: 100;
+}
+
+.footer-icon{
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-icon img{
+    width: 20px;
 }
