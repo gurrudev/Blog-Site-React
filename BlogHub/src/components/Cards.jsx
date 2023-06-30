@@ -84,7 +84,7 @@ function Cards() {
                 <p className='des'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure sapiente adipisci ea ullam dolorem sit voluptatum quasi esse cum, hic id, corrupti fuga? Vel excepturi corrupti necessitatibus. Sint, fuga mollitia!</p>
                 <a href="">View Post</a> <span className='underline'></span>
             </div>
-            
+
         </div>
     )
 }
