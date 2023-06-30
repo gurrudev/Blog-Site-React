@@ -2,7 +2,11 @@ import React from 'react'
 import './FiltersCards.css'
 function FiltersCards() {
   return (
-    <div>FiltersCards</div>
+    <>
+      <div className="filter-cards-container">
+
+      </div>
+    </>
   )
 }
 
