@@ -13,7 +13,7 @@
   flex-direction: column;
 }
 
-.card a{
+.card a {
   font-family: europaBold;
   margin-top: 10px;
   font-weight: bolder;
@@ -30,33 +30,33 @@
 }
 
 .card img {
-  width: 100%
+  width: 100%;
 }
 
 .card h2 {
-    font-family: europaBold;
-    margin-top: 15px;
+  font-family: europaBold;
+  margin-top: 15px;
 }
 
-.user-details{
-    display: flex;
-    justify-content: space-between;
+.user-details {
+  display: flex;
+  justify-content: space-between;
 }
 
-.user-name{
-    font-family: europaBold;
-    margin-top: 10px;
-    font-size: 18px;
+.user-name {
+  font-family: europaBold;
+  margin-top: 10px;
+  font-size: 18px;
 }
 
-.des{
-    font-family: customeRegular;
-    margin-top: 10px;
+.des {
+  font-family: customeRegular;
+  margin-top: 10px;
 }
 
-.date{
-    font-family: customeItalic;
-    margin-top: 10px;
+.date {
+  font-family: customeItalic;
+  margin-top: 10px;
 }
 
 @media (max-width: 1470px) {
