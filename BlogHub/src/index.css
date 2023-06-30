@@ -1,24 +1,24 @@
-* {
-  margin: 0;
-  padding: 0;
+*{
+    margin: 0;
+    padding: 0;
 }
 
 @font-face {
-  font-family: customeRegular;
-  src: url(./assets/fonts/OpenSans-Regular.ttf);
+    font-family: customeRegular;
+    src: url(./assets/fonts/OpenSans-Regular.ttf);
 }
 
 @font-face {
-  font-family: customeItalic;
-  src: url(./assets/fonts/OpenSans-Italic.ttf);
+    font-family: customeItalic;
+    src: url(./assets/fonts/OpenSans-Italic.ttf);
 }
 
 @font-face {
-  font-family: europaBold;
-  src: url(./assets/fonts/Europa-Bold.ttf);
+    font-family: europaBold;
+    src: url(./assets/fonts/Europa-Bold.ttf);
 }
 
 @font-face {
-  font-family: Galins;
-  src: url(./assets/fonts/Galins.otf);
+    font-family: Galins;
+    src: url(./assets/fonts/Galins.otf);
 }
