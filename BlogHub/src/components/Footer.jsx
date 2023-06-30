@@ -18,7 +18,8 @@ function Footer() {
         <a href="javascript: void(0)"><img src={StackoverflowIcon} alt="" srcset="" /></a>
       </div>
     </div>
-  </>)
+  </>
+  )
 }
 
 export default Footer
