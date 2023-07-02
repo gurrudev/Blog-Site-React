@@ -9,7 +9,6 @@ export const getBlogsData = async() =>{
     }
 }
 
-
 export const getUsersData = async () =>{
     try{
         let get_users = await axios.get('https://embarrassed-boa-zipper.cyclic.app/api/users')

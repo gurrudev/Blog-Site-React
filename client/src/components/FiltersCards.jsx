@@ -4,7 +4,7 @@ function FiltersCards() {
   return (
     <>
       <div className="filter-cards-container">
-
+          <h1>Filter Cards</h1>
       </div>
     </>
   )
