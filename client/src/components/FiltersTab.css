@@ -11,4 +11,7 @@ ul{
 
 ul li{
     list-style: none;
+    font-family: customeRegular;
+    font-weight: 600;
 }
+

@@ -1,4 +1,82 @@
 
+.filter-container{
+    display: flex;
+    padding: 2rem 5rem;
+}
+
 .filter-cards-container{
     display: flex;
+}
+
+.main-card {
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .main-card a {
+    font-family: europaBold;
+    margin-top: 10px;
+    font-weight: bolder;
+    text-decoration: unset;
+    color: inherit;
+    font-size: 17px;
+  }
+  
+  .underline {
+    width: 80px;
+    height: 2px;
+    color: #000;
+    background-color: #000;
+  }
+  
+  .main-card img {
+    width: 100%;
+  }
+  
+  .main-card h2 {
+    font-family: europaBold;
+    margin-top: 15px;
+  }
+  
+  .user-details {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .user-name {
+    font-family: europaBold;
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  
+  .des {
+    font-family: customeRegular;
+    margin-top: 10px;
+  }
+  
+  .date {
+    font-family: customeItalic;
+    margin-top: 10px;
+  }
+
+  .sub-cards{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sub-cards-col{
+    display: flex;
+    gap: 2rem;
+  }
+
+  .sub-cards-col img{
+    width: 200px;
+  }
+
+.recent{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 }

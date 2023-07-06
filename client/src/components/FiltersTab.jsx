@@ -5,14 +5,12 @@ function FiltersTab() {
     <>
     <div className='filter-tabs'>
       <ul>
-        <li>Category Name</li>
-        <li>Category Name</li>
-        <li>Category Name</li>
-        <li>Category Name</li>
-        <li>Category Name</li>
-        <li>Category Name</li>
-        <li>Category Name</li>
-        <li>Category Name</li>
+        <li><button type="button">Category Name</button> </li>
+        <li><button type="button">Category Name</button> </li>
+        <li><button type="button">Category Name</button> </li>
+        <li><button type="button">Category Name</button> </li>
+        <li><button type="button">Category Name</button> </li>
+        <li><button type="button">Category Name</button> </li>
       </ul>
     </div>
     </>
