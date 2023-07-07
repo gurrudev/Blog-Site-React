@@ -1,5 +1,7 @@
 import React from "react";
 import './Navbar.css'
+import { FaUserAlt } from "react-icons/fa";
+
 
 function Navbar() {
   return (
@@ -18,7 +20,7 @@ function Navbar() {
             <li><a href="">LIFESTYLE</a></li>
           </ul>
         </nav>
-        <button>GET STARTED</button>
+        <FaUserAlt className="user-icon"/>
       </header>
     </>
   )
