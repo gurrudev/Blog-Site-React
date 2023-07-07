@@ -1,15 +1,19 @@
 
 .filter-container{
     display: flex;
-    padding: 2rem 5rem;
+    padding: 2rem 4.3rem;
+    gap: 2rem;
 }
 
 .filter-cards-container{
     display: flex;
+    border: 2px solid #D0D0D0;
+    padding: 1.5rem;
+    gap: 1.5rem;
 }
 
 .main-card {
-    width: 100%;
+    /* width: 100%; */
     flex-wrap: wrap;
     display: flex;
     flex-direction: column;
@@ -32,7 +36,8 @@
   }
   
   .main-card img {
-    width: 100%;
+    width: 40%;
+    
   }
   
   .main-card h2 {
@@ -68,15 +73,25 @@
 
   .sub-cards-col{
     display: flex;
+    /* flex-direction: column; */
     gap: 2rem;
   }
+  .sub-card-title  h3{
+    width: 50px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
 
   .sub-cards-col img{
     width: 200px;
+    height: 100px;
   }
 
 .recent{
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 1rem;
+    border: 2px solid #D0D0D0;
+    padding: 1.5rem;
 }
