@@ -28,7 +28,7 @@ function FiltersCards() {
             <div className="sub-cards-col">
               <img src={'https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1nfGVufDB8fDB8fHww&w=1000&q=80'} alt="" srcSet="" />
               <div className="sub-card-title">
-                <h3>eTitleTitleTitleTitle</h3>
+                <h3> eTitleTitleTitleTitle eTitleTitleTitleTitle</h3>
                 <p className='date'>June 28, 2023</p>
               </div>
             </div>
@@ -72,7 +72,7 @@ function FiltersCards() {
           <div className="sub-cards-col">
             <img src={'https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1nfGVufDB8fDB8fHww&w=1000&q=80'} alt="" srcSet="" />
             <div className="sub-card-title">
-              <h3>Title</h3>
+              <h3>Title Title Title wefg erhTitle  </h3>
               <p className='date'>June 28, 2023</p>
             </div>
           </div>
