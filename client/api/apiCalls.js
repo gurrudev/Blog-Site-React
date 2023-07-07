@@ -18,3 +18,13 @@ export const getUsersData = async () =>{
     }
 }
 
+export const loginUser = async(params) =>{
+
+    try {
+        let login = await axios.post('https://embarrassed-boa-zipper.cyclic.app/api/users/login',params)
+        return login.data
+    } catch (err) {
+        console.log(err)
+    }
+}
+
