@@ -4,7 +4,7 @@ import FilterCards from './FiltersCards'
 function FilterContainer() {
   return (
     <>
-    <FiltersTab/>
+    {/* <FiltersTab/> */}
     <FilterCards/>
     </>
   )
