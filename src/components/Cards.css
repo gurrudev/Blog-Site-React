@@ -1,9 +1,9 @@
 .card-container {
-  /* margin: 50px; */
+ 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 25px;
-  padding: 3rem 5rem;
+  padding: 3rem 3rem;
 }
 
 .card {
@@ -36,6 +36,7 @@
 .card h2 {
   font-family: europaBold;
   margin-top: 15px;
+  font-size: 18px;
 }
 
 .user-details {
@@ -43,11 +44,7 @@
   justify-content: space-between;
 }
 
-.user-name {
-  font-family: europaBold;
-  margin-top: 10px;
-  font-size: 18px;
-}
+
 
 .des {
   font-family: customeRegular;
