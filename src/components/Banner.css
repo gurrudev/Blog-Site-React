@@ -46,15 +46,3 @@
     justify-content: center;
     margin-top: 20px;
 }
-
-.banner-text button{
-    margin-top: 20px;
-    background: #fff;
-    color: black;
-    font-family: europaBold;
-}
-
-.banner-text button:hover{
-    background: #000000;
-    color: rgb(255, 253, 253);
-}

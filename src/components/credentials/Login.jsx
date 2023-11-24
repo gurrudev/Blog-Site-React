@@ -27,10 +27,10 @@ const navigate = useNavigate()
 
     return (
         <>
-            <div>
+            <div className=''>
                 {/* <form action=""> */}
                     <label htmlFor="email"></label>
-                    <input value={email} onChange={(e)=>setemail(e.target.value)} type="email" id="Email" name="email" placeholder="Enter Email Address" />
+                    <input value={email} onChange={(e)=>setemail(e.target.value)} type="email" id="Email" name="email" placeholder="Enter Email ID" />
                     <label htmlFor="password"></label>
                     <input value={password} onChange={(e)=>setpassword(e.target.value)} type="password" id="Password" name="password" placeholder="Enter Password" />
                     <button onClick={submit} >Login</button>
