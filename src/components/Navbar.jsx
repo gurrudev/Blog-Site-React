@@ -7,11 +7,11 @@ function Navbar() {
   return (
     <>
       <header>
-        <div className="logo mt-4">
+        <div className="logo mt-6">
           <p>BlogHub</p>
         </div>
         
-        <FaUserAlt className="user-icon mt-4 text-[20px]"/>
+        <FaUserAlt className="user-icon mt-6 text-[20px]"/>
       </header>
     </>
   )
