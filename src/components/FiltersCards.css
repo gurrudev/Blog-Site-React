@@ -80,7 +80,6 @@
 
 .sub-cards-col {
   display: flex;
-  /* flex-direction: column; */
   gap: 1.2rem;
 }
 
@@ -89,4 +88,9 @@
 .sub-cards-col img {
   width: 150px;
   height: 100px;
+}
+
+p {
+  font-size: 11px;
+  font-family: europaBold;
 }
