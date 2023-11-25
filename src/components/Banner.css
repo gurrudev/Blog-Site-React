@@ -40,9 +40,12 @@
 
 .banner-text h3 {
     font-family: europaBold;
-    /* text-transform: uppercase; */
     display: flex;
     font-size: 30px;
     justify-content: center;
     margin-top: 20px;
+}
+
+.banner-btn {
+    font-family: customeRegular;
 }

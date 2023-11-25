@@ -9,7 +9,7 @@ function Navbar() {
     <>
       <header>
         <div className="logo mt-6">
-          <p>BlogHub</p>
+          <h1>BlogHub</h1>
         </div>
         <Link to={'/login'}>
           <FaUserAlt className="user-icon mt-6 text-[20px]"/>
