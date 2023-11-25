@@ -19,7 +19,6 @@ function App() {
                 <Banner />
                 <Cards />
                 <FilterContainer />
-                
                 <Footer />
               </>
             }
