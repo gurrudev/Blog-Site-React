@@ -7,7 +7,7 @@
 
 .filter-cards-container {
   display: flex;
-  border: 2px solid #d0d0d0;
+  border: 2px solid #b9bfc2;
   padding: 1.5rem;
   gap: 1.5rem;
 }
@@ -80,13 +80,26 @@
 
 .sub-cards-col {
   display: flex;
-  /* flex-direction: column; */
   gap: 1.2rem;
 }
 
-
+.sub-cards-col2 {
+  display: flex;
+  gap: 1.2rem;
+}
 
 .sub-cards-col img {
-  width: 150px;
-  height: 100px;
+  width: 130px;
+  height: 90px;
+}
+
+
+.sub-cards-col2 img {
+  width: 200px;
+  height: 120px;
+}
+
+p {
+  font-size: 11px;
+  font-family: europaBold;
 }
