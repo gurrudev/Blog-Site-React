@@ -4,7 +4,7 @@ import './Cards.css'
 import { getBlogsData } from '../../api/apiCalls'
 import HomeSekeleton from './Skeleton/HomeSekeleton'
 import truncate from '../../utils/Truncate'
-
+import Cover from './Cover'
 function Cards() {
     const [cardBlogsData, setCardData] = useState(null);
     const [isLoading, setIsLoading] = useState(true)
@@ -25,6 +25,7 @@ function Cards() {
 
     // For card 
     return (
+        <>
         <main ref={animate} >
         
             <div className='card-container' >
@@ -45,6 +46,10 @@ function Cards() {
                 }
             </div>
         </main>
+
+        <Cover/>
+
+        </>
     )
 }
 

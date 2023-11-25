@@ -1,7 +1,7 @@
 import './App.css'
 import Banner from './components/Banner'
 import Cards from './components/Cards'
-import Cover from './components/Cover'
+
 import FilterContainer from './components/FilterContainer'
 import Footer from './components/Footer'
 import Login from './components/credentials/Login'
@@ -18,8 +18,8 @@ function App() {
               <>
                 <Banner />
                 <Cards />
-                {/* <FilterContainer /> */}
-                <Cover/>
+                <FilterContainer />
+                
                 <Footer />
               </>
             }
