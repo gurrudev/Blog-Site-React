@@ -18,7 +18,7 @@ function App() {
               <>
                 <Banner />
                 <Cards />
-                <FilterContainer />
+                {/* <FilterContainer /> */}
                 <Footer />
               </>
             }

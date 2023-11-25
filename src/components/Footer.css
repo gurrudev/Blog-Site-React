@@ -1,7 +1,6 @@
 .footer{
     background-color: black;
     display: flex;
-    justify-content: space-between;
     color: #fff;
     padding: 40px ;
 }
