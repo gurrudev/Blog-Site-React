@@ -18,7 +18,7 @@ function FiltersCards() {
             </div>
 
             <div className="sub-cards">
-              <div className="sub-cards-col">
+              <div className="sub-cards-col2">
                 <img src={'https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1nfGVufDB8fDB8fHww&w=1000&q=80'} alt="" srcSet="" />
                 <div className="sub-card-title">
                   <h3 className='uppercase overflow-wrap'>We have launched Flowbite Blocks featuring over</h3>
@@ -26,7 +26,7 @@ function FiltersCards() {
                 </div>
               </div>
 
-              <div className="sub-cards-col">
+              <div className="sub-cards-col2">
                 <img src={'https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1nfGVufDB8fDB8fHww&w=1000&q=80'} alt="" srcSet="" />
                 <div className="sub-card-title">
                   <h3 className='uppercase overflow-wrap'>We have launched Flowbite Blocks featuring over</h3>
@@ -34,7 +34,7 @@ function FiltersCards() {
                 </div>
               </div>
 
-              <div className="sub-cards-col">
+              <div className="sub-cards-col2">
                 <img src={'https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1nfGVufDB8fDB8fHww&w=1000&q=80'} alt="" srcSet="" />
                 <div className="sub-card-title">
                   <h3 className='uppercase overflow-wrap'>We have launched Flowbite Blocks featuring over</h3>
@@ -42,10 +42,10 @@ function FiltersCards() {
                 </div>
               </div>
 
-              <div className="sub-cards-col">
+              <div className="sub-cards-col2">
                 <img src={'https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1nfGVufDB8fDB8fHww&w=1000&q=80'} alt="" srcSet="" />
                 <div className="sub-card-title">
-                  <h3 className='uppercase overflow-wrap'>We have launched Flowbite Blocks featuring over We have launched Flowbite Blocks featuring over</h3>
+                  <h3 className='uppercase overflow-wrap'>We have launched Flowbite Blocks featuring over </h3>
                   <p className='date'>June 28, 2023</p>
                 </div>
               </div>
@@ -78,6 +78,14 @@ function FiltersCards() {
                 <p className='uppercase overflow-wrap'>We have launched Flowbite Blocks featuring over</p>
                 <p className='date'>June 28, 2023</p>
               {/* </div> */}
+            </div>
+          </div>
+
+          <div className="sub-cards-col ">
+            <img src={'https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1nfGVufDB8fDB8fHww&w=1000&q=80'} alt="" srcSet="" />
+            <div className="sub-card-title ">
+              <p className='uppercase overflow-wrap'>We have launched Flowbite Blocks featuring over</p>
+              <p className='date'>June 28, 2023</p>
             </div>
           </div>
 
