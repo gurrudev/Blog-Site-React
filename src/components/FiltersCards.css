@@ -39,9 +39,9 @@
   max-height: 400px;
 }
 
-.main-card h2 {
+.main-card h2, h3 {
   font-family: europaBold;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .user-details {
@@ -62,7 +62,7 @@
 
 .date {
   font-family: customeItalic;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .recent {
@@ -81,14 +81,10 @@
 .sub-cards-col {
   display: flex;
   /* flex-direction: column; */
-  gap: 2rem;
+  gap: 1.2rem;
 }
 
-.sub-card-title h3 {
-  width: 250px;
-  overflow: hidden;
-  /* flex-wrap: wrap; */
-}
+
 
 .sub-cards-col img {
   width: 150px;
