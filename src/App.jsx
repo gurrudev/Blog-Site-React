@@ -1,28 +1,24 @@
 import './App.css'
-import Banner from './components/Banner'
-import Cards from './components/Cards'
-
-import FilterContainer from './components/FilterContainer'
 import Footer from './components/Footer'
-import Login from './components/credentials/Login'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+
 function App() {
 
   return (
     <>
       <Router>
         <Routes>
-          <Route path='/login' element={<Login />} />
+          <Route path='/login' element={''} />
           <Route path="/" 
             element={
               <>
-                <Banner />
-                <Cards />
-                <FilterContainer />
+                <Home/>
                 <Footer />
               </>
             }
           />
+          
         </Routes>
       </Router>
     </>
