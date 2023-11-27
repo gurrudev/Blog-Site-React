@@ -2,6 +2,7 @@ import './App.css'
 import Footer from './components/Footer'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
+import Login from './pages/Login'
 
 function App() {
 
@@ -9,7 +10,7 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path='/login' element={''} />
+          <Route path='/login' element={<Login/>} />
           <Route path="/" 
             element={
               <>

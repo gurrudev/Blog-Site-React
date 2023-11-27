@@ -4,11 +4,11 @@ import Cards from '../components/Cards'
 import FilterContainer from '../components/FilterContainer'
 const Home = () => {
     return (
-        <>
+        <div className=''>
             <Banner />
             <Cards />
             <FilterContainer />
-        </>
+        </div>
     )
 }
 
