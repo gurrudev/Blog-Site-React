@@ -43,7 +43,9 @@
   justify-content: space-between;
 }
 
-
+.recent-text{
+  font-family: europaBold;
+}
 
 .des {
   font-family: customeRegular;
