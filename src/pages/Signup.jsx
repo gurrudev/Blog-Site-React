@@ -1,7 +1,6 @@
 import React from 'react'
 import bgImg from '../assets/img/cover.jpeg'
 import { Link } from 'react-router-dom'
-import './SignInandSignUP.css'
 
 const Signup = () => {
     return (

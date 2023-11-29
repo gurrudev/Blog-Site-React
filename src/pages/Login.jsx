@@ -1,7 +1,7 @@
 import React from 'react'
 import bgImg from '../assets/img/cover.jpeg'
 import { Link, useNavigate } from 'react-router-dom'
-import './SignInandSignUP.css'
+
 
 const Login = () => {
 
