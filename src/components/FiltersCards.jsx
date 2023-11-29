@@ -3,6 +3,7 @@ import './FiltersCards.css'
 function FiltersCards() {
   return (
     <>
+      <h1 className='text-[23px] recent-text mt-[20px] ml-12 mb-0 '>"Recomended"</h1>
       <div className="filter-container ">
         <div className='hidden lg:block'>
           <div className="filter-cards-container">

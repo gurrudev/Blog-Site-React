@@ -28,7 +28,7 @@ function Cards() {
         <>
             <main ref={animate} >
 
-                <h1 className='text-[23px] mt-[20px] ml-11 mb-[-20px]'>"Recent"</h1>
+                <h1 className='text-[23px] recent-text mt-[20px] ml-11 mb-[-20px]'>"Recent"</h1>
                 <div className='card-container' >
                     {
                         isLoading ? Array(8).fill(0).map((d, i) => (<HomeSekeleton key={i} />)) :
