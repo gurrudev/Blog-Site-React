@@ -1,7 +1,7 @@
 import React from 'react'
 import bgImg from '../assets/img/cover.jpeg'
 import { Link, useNavigate } from 'react-router-dom'
-import './SignInandSignUP.css'
+
 
 const Login = () => {
 
@@ -23,6 +23,7 @@ const Login = () => {
                         <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                             <h1 class="text-xl font-bold leading-tight form-heading tracking-tight text-gray-900 md:text-2xl ">
                                 Sign in to your account
+                                
                             </h1>
                             <form class="form-text space-y-4 md:space-y-6" action="#">
                                 <div className=''>
