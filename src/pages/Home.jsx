@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <div className=''>
             <Banner />
-            <Cards />
+            <Cards cardsData={''} totalCards={8} cardAction={''}/>
             <Cover />
             <FilterContainer />
         </div>
