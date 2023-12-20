@@ -1,14 +1,30 @@
 import React from 'react'
+import pic from '../assets/img/banner.jpg'
+
 
 const BlogPost = () => {
     return (
         <>
+<div className="relative overflow-hidden">
+      {/* Image div with overlay */}
+      <div className="w-full h-80 relative">
+        <img className="w-full h-full object-cover" src={pic} alt="Image" />
+        <div className="absolute inset-0 bg-black" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}></div>
+        {/* Back button */}
+        <div className="absolute top-0 left-0 p-4">
+          <button className="bg-gray-800 text-white px-4 py-2 rounded-lg shadow-md">
+            Back
+          </button>
+        </div>
+      </div>
+  </div>
+
             <main className="pt-3 pb-4 lg:pt-3 lg:pb-4 ">
-            
+
                 <div className="flex justify-between px-4 mx-auto max-w-screen-xl ">
-                    
+
                     <article className="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
-                    <h1 className=" text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl ">Best practices for successful prototypes</h1>
+                        <h1 className=" text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl ">Best practices for successful prototypes</h1>
                         <address className="flex  items-center mt-6 mb-6 not-italic">
                             <div className="inline-flex items-center mr-3 text-sm text-gray-900 ">
                                 <img className="mr-4 w-16 h-16 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Jese Leos" />
@@ -19,8 +35,8 @@ const BlogPost = () => {
                                 </div>
                             </div>
                         </address>
-    
-                    
+
+
                         <p className="lead">Flowbite is an open-source library of UI components built with the utility-first
                             classNamees from Tailwind CSS. It also includes interactive elements such as dropdowns, modals,
                             datepickers.</p>
@@ -192,7 +208,7 @@ const BlogPost = () => {
                                         </svg>
                                         <span className="sr-only">Comment settings</span>
                                     </button>
-                                    
+
                                     <div id="dropdownComment1"
                                         className="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                                         <ul className="py-1 text-sm text-gray-700 dark:text-gray-200"
@@ -243,7 +259,7 @@ const BlogPost = () => {
                                         </svg>
                                         <span className="sr-only">Comment settings</span>
                                     </button>
-                                    
+
                                     <div id="dropdownComment2"
                                         className="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                                         <ul className="py-1 text-sm text-gray-700 dark:text-gray-200"
@@ -292,7 +308,7 @@ const BlogPost = () => {
                                         </svg>
                                         <span className="sr-only">Comment settings</span>
                                     </button>
-                                    
+
                                     <div id="dropdownComment3"
                                         className="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                                         <ul className="py-1 text-sm text-gray-700 dark:text-gray-200"
@@ -340,7 +356,7 @@ const BlogPost = () => {
                                             <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" />
                                         </svg>
                                     </button>
-                                    
+
                                     <div id="dropdownComment4"
                                         className="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
                                         <ul className="py-1 text-sm text-gray-700 dark:text-gray-200"
@@ -375,6 +391,8 @@ const BlogPost = () => {
                     </article>
                 </div>
             </main>
+
+
 
         </>
     )
