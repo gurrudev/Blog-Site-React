@@ -22,6 +22,7 @@ function App() {
               </>
             }
           />
+          
           <Route path='/post/:id' element={<BlogPost/>}/>
           
         </Routes>
