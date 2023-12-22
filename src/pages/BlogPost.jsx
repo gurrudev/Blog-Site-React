@@ -5,19 +5,19 @@ import pic from '../assets/img/banner.jpg'
 const BlogPost = () => {
     return (
         <>
-<div className="relative overflow-hidden">
-      {/* Image div with overlay */}
-      <div className="w-full h-80 relative">
-        <img className="w-full h-full object-cover" src={pic} alt="Image" />
-        <div className="absolute inset-0 bg-black" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}></div>
-        {/* Back button */}
-        <div className="absolute top-0 left-0 p-4">
-          <button className="bg-gray-800 text-white px-4 py-2 rounded-lg shadow-md">
-            Back
-          </button>
-        </div>
-      </div>
-  </div>
+            <div className="relative overflow-hidden">
+                {/* Image div with overlay */}
+                <div className="w-full h-80 relative">
+                    <img className="w-full h-full object-cover" src={pic} alt="Image" />
+                    <div className="absolute inset-0 bg-black" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}></div>
+                    {/* Back button */}
+                    <div className="absolute top-0 left-0 p-4">
+                        <button className="bg-gray-800 text-white px-4 py-2 rounded-lg shadow-md">
+                            Back
+                        </button>
+                    </div>
+                </div>
+            </div>
 
             <main className="pt-3 pb-4 lg:pt-3 lg:pb-4 ">
 
