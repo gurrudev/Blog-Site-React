@@ -1,8 +1,14 @@
 import React from 'react'
 import pic from '../assets/img/banner.jpg'
 import { FaArrowLeft } from "react-icons/fa6";
+import { useNavigate } from 'react-router-dom';
 
 const BlogPost = () => {
+
+
+    const navigate = useNavigate();
+
+
     return (
         <>
             <div className="relative overflow-hidden">
@@ -11,7 +17,7 @@ const BlogPost = () => {
                     <img className="w-full h-full object-cover" src={pic} alt="Image" />
                     <div className="absolute inset-0 bg-black" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}></div>
                     {/* Back button */}
-                    <div className="absolute top-0 left-0 p-4 text-[white] text-[25px] cursor-pointer">
+                    <div className="absolute top-0 left-0 p-4 text-[white] text-[25px] cursor-pointer" onClick={()=>navigate('/')}>
                         <FaArrowLeft/>
                     </div>
                 </div>
