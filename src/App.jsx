@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import BlogPost from './pages/BlogPost'
+import UserProfile from './pages/UserProfile'
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
           />
           
           <Route path='/post/:id' element={<BlogPost/>}/>
-          <Route path='/profile' element={''}/>
+          <Route path='/profile' element={<UserProfile/>}/>
         </Routes>
       </Router>
     </>
