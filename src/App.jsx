@@ -1,11 +1,12 @@
 import './App.css'
 import Footer from './components/Footer'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import BlogPost from './pages/BlogPost'
 import UserProfile from './pages/UserProfile'
+import NotFound404 from './pages/NotFound404'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           
           <Route path='/post/:id' element={<BlogPost/>}/>
           <Route path='/profile' element={<UserProfile/>}/>
+          <Route path="*" element={<NotFound404 />} />
         </Routes>
       </Router>
     </>
