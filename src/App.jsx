@@ -24,7 +24,7 @@ function App() {
           />
           
           <Route path='/post/:id' element={<BlogPost/>}/>
-          
+          <Route path='/profile' element={''}/>
         </Routes>
       </Router>
     </>
