@@ -25,11 +25,11 @@ const BlogPost = () => {
                         <div className='py-4  px-6 lg:px-0 md:px-0 mx-auto w-full max-w-3xl '>
                             <div className="max-w-3xl absolute bottom-1 text-white pb-6">
                                 <h1 className="text-[40px] leading-tight uppercase pb-2 form-heading">Best practices for successful prototypes.</h1>
-                                <div className='flex gap-2'>
+                                <div className='flex gap-2 text-sm'>
                                     <p>by {"Joanna Bob"} &nbsp; ── </p>
                                     <div className='flex gap-1'>
                                         <span className='py-1.5'><MdOutlineWatchLater /></span>
-                                        <p className=''> {"2"} Minutes Read &nbsp; ── </p>
+                                        <p className=''> {"3"} Minutes Read &nbsp; ── </p>
                                     </div>
                                     <span className='flex gap-1 py-1.5'>
                                     <FaFacebook/>
