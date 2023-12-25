@@ -31,51 +31,24 @@ function Cards({ cardsData, totalCards, cardAction }) {
                         isLoading ? Array(totalCards).fill(0).map((d, i) => (<HomeCardSekeleton key={i} />)) :
                             cardsData?.filter((item, index) => index < totalCards)?.map((item, index) => (
                                 <div className="card " key={index}>
-                                    {/* <img src={'https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1nfGVufDB8fDB8fHww&w=1000&q=80'} alt="" /> */}
-
-                                    {/* <div className="relative">
-                                        <img className='' src={"https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1nfGVufDB8fDB8fHww&w=1000&q=80"} alt="Your Image" />
-                                        <div className="absolute inset-0">
-                                            <div className='flex justify-between p-4 text-white text-lg'>
-                                                <div className='flex gap-1.5'>
-                                                <div className='bg-white bg-opacity-20 backdrop-blur-2xl rounded-sm'>
-                                                    <div className='p-1'><p className='pl-2 pr-2'>{"Action"} </p></div>
+                                    <div className="relative">
+                                        <img src={"https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1nfGVufDB8fDB8fHww&w=1000&q=80"} alt="Your Image" />
+                                        <div className="absolute inset-0 flex justify-between p-4 text-white text-lg">
+                                            <div className='flex gap-1.5 items-start'>
+                                                <div className='bg-white bg-opacity-20 backdrop-blur-2xl rounded-sm p-1'>
+                                                    <p className='pl-2 pr-2 text-base form-text'>Travel</p>
                                                 </div>
-                                                <div className='bg-white bg-opacity-20 backdrop-blur-2xl rounded-sm'>
-                                                <div className='p-1'><p className='pl-2 pr-2'>{"Adventure"} </p></div>
+                                                <div className='bg-white bg-opacity-20 backdrop-blur-2xl rounded-sm p-1'>
+                                                    <p className='pl-2 pr-2 text-base form-text'>Adventure</p>
                                                 </div>
-                                                </div>
-                                                <div className='bg-white bg-opacity-20 backdrop-blur-2xl rounded-[100%]'>
-                                                    <div className='p-1'>
-                                                        <p className='p-1'><CiImageOn /></p>
-                                                    </div>
+                                            </div>
+                                            <div className='flex items-start'>
+                                                <div className='bg-white bg-opacity-20 backdrop-blur-2xl rounded-full p-2'>
+                                                    <p className='text-base'><CiImageOn /></p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> */}
-
-<div className="relative">
-    <img src={"https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1nfGVufDB8fDB8fHww&w=1000&q=80"} alt="Your Image" />
-    <div className="absolute inset-0 flex justify-between p-4 text-white text-lg">
-        <div className='flex gap-1.5 items-start'>
-            <div className='bg-white bg-opacity-20 backdrop-blur-2xl rounded-sm p-1'>
-                <p className='pl-2 pr-2 text-base'>Travel</p>
-            </div>
-            <div className='bg-white bg-opacity-20 backdrop-blur-2xl rounded-sm p-1'>
-                <p className='pl-2 pr-2 text-base'>Adventure</p>
-            </div>
-        </div>
-        <div className='flex items-start'>
-            <div className='bg-white bg-opacity-20 backdrop-blur-2xl rounded-full p-2'>
-                <p className='text-base'><CiImageOn /></p>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
+                                    </div>
 
                                     <h2 className='uppercase'>{item.title}</h2>
                                     <div className="user-details">
