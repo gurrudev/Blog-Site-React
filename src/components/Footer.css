@@ -1,17 +1,11 @@
-.footer{
-    background-color: black;
-    display: flex;
-    color: #fff;
-    padding: 40px ;
-}
 
-.footer a{
+footer a{
     font-family: europaBold;
     text-decoration: none;
     color: #fff;
 }
 
-.footer span{
+footer span{
     font-family: customeRegular;
     font-weight: 100;
 }
