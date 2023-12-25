@@ -1,7 +1,11 @@
 import React from 'react'
 import './Cover.css'
 import coverImg from '../assets/img/cover.jpeg'
+import { useNavigate } from 'react-router'
 const Cover = () => {
+
+    const navigate = useNavigate()
+
     return (
         <div className='hidden lg:block md:block p-11 '>
             <div className="relative ">
@@ -13,7 +17,7 @@ const Cover = () => {
                         <p className='text-[white] cover-text-para pt-2'>Progressively incentivize cooperative systems through technically sound functionalities. The credibly productivate seamless data.</p>
                         <div className='p-5'>
 
-                            <button className='text-[black] pl-3 pr-3 pt-2 pb-2 rounded-sm bg-[white] hover:bg-slate-100 cover-text-para'>Start Planning Your Trip</button>
+                            <button className='text-[black] pl-3 pr-3 pt-2 pb-2 rounded-sm bg-[white] hover:bg-slate-100 cover-text-para' onClick={()=>navigate('/post/on')}>Start Planning Your Trip</button>
                         </div>
                     </div>
                 </div>
