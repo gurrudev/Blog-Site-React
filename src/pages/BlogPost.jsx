@@ -19,9 +19,9 @@ const BlogPost = () => {
                         <div className="absolute top-0 left-0 p-6 text-white text-2xl cursor-pointer" onClick={() => navigate('/')}>
                             <FaArrowLeft />
                         </div>
-                        <div className='py-4  px-6 lg:px-0 md:px-0 mx-auto w-full max-w-3xl '>
+                        <div className='py-4  px-6  mx-auto w-full max-w-3xl md:pl-14 md:pr-14'>
                             <div className="max-w-3xl absolute bottom-1 text-white pb-6">
-                                <h1 className="text-[30px] leading-tight uppercase pb-2 form-heading">Best practices for successful prototypes.</h1>
+                                <h1 className="text-[30px] leading-tight uppercase pb-2 form-heading">Best practices and the for successful prototypes.</h1>
                                 <div className='flex gap-2 text-sm'>
                                     <p>by {"Joanna Bob"} &nbsp; ── </p>
                                     <div className='flex gap-1'>
@@ -34,7 +34,7 @@ const BlogPost = () => {
                     </div>
                 </div>
                 <div className="py-6 px-6">
-                    <article className="mx-auto w-full max-w-3xl ">
+                    <article className="mx-auto w-full max-w-3xl md:pl-14 md:pr-14">
                         <p className='form-text'>
                             Lorem ipsum dolor sit, fuga sit aliquid nesciunt at a vel pariatur blanditiis dolor provident sapiente accusamus exercitationem eligendi iure reiciendis Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti, magnam deserunt! Porro quisquam placeat odit veritatis vel itaque libero et nemo aliquid quasi! Architecto harum quae excepturi vero quia neque?
                             Cum, rem? Architecto hic aliquid ratione ipsam omnis est quasi, deleniti odit optio qui quaerat doloribus facere ad sunt rerum dolor at non numquam perferendis ea dignissimos dicta ex reiciendis.
