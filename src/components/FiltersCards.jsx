@@ -5,8 +5,9 @@ import './FiltersCards.css'
 function FiltersCards() {
   return (
     <>
+      <h1 className='p-8 pb-0 pt-0 sm:p-20 sm:pt-0 sm:pb-10 text-2xl form-heading'>"Recomended"</h1>
+      <div className="filter-container p-8  sm:p-20 sm:pt-0 sm:pb-10">
 
-      <div className="filter-container ">
         <div className='hidden lg:block'>
           <div className="filter-cards-container">
             <div className='main-card'>
@@ -55,7 +56,7 @@ function FiltersCards() {
             </div>
           </div>
         </div>
-        <div className="recent">
+        <div className="recent ">
           <div className="sub-cards-col">
             <img src={'https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1nfGVufDB8fDB8fHww&w=1000&q=80'} alt="" srcSet="" />
             <div className="sub-card-title">
@@ -78,8 +79,8 @@ function FiltersCards() {
             <div className="sub-card-title">
               {/* <div className=''> */}
 
-                <p className='uppercase overflow-wrap'>We have launched Flowbite Blocks featuring over</p>
-                <span className='text-[11px]'>June 28, 2023</span>
+              <p className='uppercase overflow-wrap'>We have launched Flowbite Blocks featuring over</p>
+              <span className='text-[11px]'>June 28, 2023</span>
               {/* </div> */}
             </div>
           </div>
@@ -101,8 +102,6 @@ function FiltersCards() {
           </div>
         </div>
       </div>
-
-
     </>
   )
 }

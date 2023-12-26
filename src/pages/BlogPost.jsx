@@ -16,7 +16,7 @@ const BlogPost = () => {
                     <div className="w-full h-80">
                         <img className="w-full h-full object-cover" src={pic} alt="Image" />
                         <div className="absolute inset-0 bg-black" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}></div>
-                        <div className="absolute top-0 left-0 p-6 text-white text-[25px] cursor-pointer" onClick={() => navigate('/')}>
+                        <div className="absolute top-0 left-0 p-6 text-white text-2xl cursor-pointer" onClick={() => navigate('/')}>
                             <FaArrowLeft />
                         </div>
                         <div className='py-4  px-6 lg:px-0 md:px-0 mx-auto w-full max-w-3xl '>

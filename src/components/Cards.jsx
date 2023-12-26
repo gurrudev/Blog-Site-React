@@ -26,7 +26,7 @@ function Cards({ cardsData, totalCards, cardAction }) {
     return (
         <>
             <main ref={animate} >
-                <div className='card-container'>
+                <div className='card-container p-8 sm:p-20 sm:pt-10'>
                     {
                         isLoading ? Array(totalCards).fill(0).map((d, i) => (<HomeCardSekeleton key={i} />)) :
                             cardsData?.filter((item, index) => index < totalCards)?.map((item, index) => (
