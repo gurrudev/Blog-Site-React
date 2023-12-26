@@ -3,9 +3,7 @@ import pic from '../assets/img/banner.jpg'
 import { FaArrowLeft } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 import { MdOutlineWatchLater } from "react-icons/md";
-import { FaFacebook } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaPinterest } from "react-icons/fa";
+import { MdOutlineDateRange } from "react-icons/md";
 import Footer from '../components/Footer'
 const BlogPost = () => {
 
@@ -16,7 +14,7 @@ const BlogPost = () => {
             <main className="pb-4">
 
                 <div className="relative overflow-hidden">
-                    <div className="w-full h-96">
+                    <div className="w-full h-80">
                         <img className="w-full h-full object-cover" src={pic} alt="Image" />
                         <div className="absolute inset-0 bg-black" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}></div>
                         <div className="absolute top-0 left-0 p-6 text-white text-[25px] cursor-pointer" onClick={() => navigate('/')}>
@@ -24,19 +22,18 @@ const BlogPost = () => {
                         </div>
                         <div className='py-4  px-6 lg:px-0 md:px-0 mx-auto w-full max-w-3xl '>
                             <div className="max-w-3xl absolute bottom-1 text-white pb-6">
-                                <h1 className="text-[40px] leading-tight uppercase pb-2 form-heading">Best practices for successful prototypes.</h1>
+                                <h1 className="text-[30px] leading-tight uppercase pb-2 form-heading">Best practices for successful prototypes.</h1>
                                 <div className='flex gap-2 text-sm'>
                                     <p>by {"Joanna Bob"} &nbsp; ── </p>
                                     <div className='flex gap-1'>
-                                        <span className='py-1.5'><MdOutlineWatchLater /></span>
-                                        <p className=''> {"3"} Minutes Read &nbsp; ── </p>
+                                        <span className='pt-1'><MdOutlineDateRange /></span>
+                                        <p>{"June 28, 2023"} &nbsp; ──</p>
                                     </div>
-                                    <span className='flex gap-1 py-1.5'>
-                                    <FaFacebook/>
-                                    <FaXTwitter/>
-                                    <FaPinterest/>
-                                    </span>
-                                    <p>{"12.7"}k Shares </p>
+
+                                    <div className='inline-flex gap-1'>
+                                        <span className='pt-1'><MdOutlineWatchLater /></span>
+                                        <p className=''> {"3"} Minutes Read</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
