@@ -4,9 +4,10 @@ import InstagramIcon from '../assets/img/instagram-icon.png'
 import GithubIcon from '../assets/img/github-icon.png'
 import LinkedinIcon from '../assets/img/linkedin-icon.png'
 import StackoverflowIcon from '../assets/img/stackoverflow-icon.png'
+import { useNavigate } from 'react-router-dom'
 
 function Footer() {
-
+  const navigate = useNavigate()
   return (
     <>
       <footer className="relative bottom-0 bg-[black] sm:flex sm:items-center sm:justify-between p-7 sm:p-7 xl:p-8  antialiased">
@@ -15,7 +16,7 @@ function Footer() {
         </p>
         <div className="flex justify-center items-center space-x-1">
           <div className='footer-icon'>
-            <a href="javascript: void(0)"><img src={InstagramIcon} alt="" srcSet="" /></a>
+            <a onClick={()=>navigate('/post/on')} className='cursor-pointer'><img src={InstagramIcon} alt="" srcSet="" /></a>
             <a href="javascript: void(0)"><img src={LinkedinIcon} alt="" srcSet="" /></a>
             <a href="javascript: void(0)"><img src={GithubIcon} alt="" srcSet="" /></a>
             <a href="javascript: void(0)"><img src={StackoverflowIcon} alt="" srcSet="" /></a>
