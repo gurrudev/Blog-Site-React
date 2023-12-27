@@ -7,6 +7,7 @@ import Signup from './pages/Signup'
 import BlogPost from './pages/BlogPost'
 import UserProfile from './pages/UserProfile'
 import NotFound404 from './pages/NotFound404'
+import { WriteBlog } from './pages/WriteBlog'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
           
           <Route path='/post/:id' element={<BlogPost/>}/>
           <Route path='/profile' element={<UserProfile/>}/>
+          <Route path='/write-blog' element={<WriteBlog/>}/>
           <Route path="*" element={<NotFound404 />} />
         </Routes>
       </Router>

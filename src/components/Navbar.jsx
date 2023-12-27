@@ -8,7 +8,7 @@ function Navbar() {
   return (
     <>
       <header className="p-10 sm:p-20  sm:pt-10">
-        <div className="logo mt-6">
+        <div className="logo mt-6 text-white">
           <h1 className="text-2xl sm:text-3xl">BlogHub</h1>
         </div>
         <Link to={'/login'}>
