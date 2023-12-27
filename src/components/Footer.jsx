@@ -14,7 +14,7 @@ function Footer() {
     <>
       <footer className="relative bottom-0 bg-[black] sm:flex sm:items-center sm:justify-between p-7 sm:p-7 xl:p-20 xl:pt-8 xl:pb-8 lg:p-20 lg:pt-8 lg:pb-8 md:p-20 md:pt-8 md:pb-8 antialiased">
         <p className="mb-4 text-sm text-center text-gray-200 dark:text-gray-200 sm:mb-0">
-          <span className=''>Designed & Developed by <a className="text-base hover:underline text-[white]" href='https://ashutosh-pawar.me'> Ashutosh </a>{/*<FaExternalLinkAlt/>*/} </span>
+          <span className=''>Designed & Developed by <a className="text-base hover:underline text-[white]" href='https://ashutosh-pawar.me'> {"Ashutosh"} </a>{/*<FaExternalLinkAlt/>*/} </span>
         </p>
         <div className="flex justify-center items-center space-x-1">
           <div className='footer-icon'>

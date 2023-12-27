@@ -4,6 +4,7 @@ import './Cards.css'
 import HomeCardSekeleton from './Skeleton/HomeCardSekeleton'
 import truncate from '../../utils/Truncate'
 import { CiImageOn } from "react-icons/ci";
+import { MdOutlineDateRange } from "react-icons/md";
 
 function Cards({ cardsData, totalCards, cardAction }) {
 
@@ -51,9 +52,9 @@ function Cards({ cardsData, totalCards, cardAction }) {
                                     </div>
 
                                     <h2 className='uppercase'>{item.title}</h2>
-                                    <div className="user-details">
-                                        <p className='date text-[15px]'> ~ Ashutosh Pawar</p>
-                                        <p className='date text-[15px]'>June 28, 2023</p>
+                                    <div className="user-details text-slate-700">
+                                        <p className='text-[15px]'> by Ashutosh Pawar</p>
+                                        <p className='text-[15px]'> June 28, 2023</p>
                                     </div>
                                     <p className='des text-justify'>{truncate(item.description)}</p>
                                     <a href="">View Post</a> <span className='underline'></span>
