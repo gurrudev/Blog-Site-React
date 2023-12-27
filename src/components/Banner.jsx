@@ -12,8 +12,8 @@ function Banner() {
 
             <div className="banner-text">
                 <h1 className='text-center'>Experience the beauty of diverse perspectives</h1>
-                <h3>Write Your thoughts</h3>
-                <Link to='/login'><button className='banner-btn bg-white text-slate-800 rounded-sm pt-2 pb-2 pl-4 pr-4 hover:bg-slate-100 mt-5'>Get Started</button></Link>
+                <h3><Link to={'/write-blog'}>Write Your thoughts</Link></h3>
+                <button className='banner-btn bg-white text-slate-800 rounded-sm pt-2 pb-2 pl-4 pr-4 hover:bg-slate-100 mt-5 text-sm'>Get Started</button>
             </div>
             <div className="overlay"></div>
             <div className="custom-clip-path">
@@ -21,7 +21,6 @@ function Banner() {
                 <img src={banner_img} alt="" />
             </div>
         </div>
-
 
     )
 }

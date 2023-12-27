@@ -12,14 +12,6 @@ header{
     z-index: 4;
 }
 
-.logo{
-    /* font-size: 40px; */
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    font-family: Galins;
-}
-
 .user-icon{
     color: #fff;
     cursor: pointer;

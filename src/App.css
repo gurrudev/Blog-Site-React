@@ -1,3 +1,10 @@
+.logo{
+    /* font-size: 40px; */
+    font-weight: bold;
+    cursor: pointer;
+    font-family: Galins;
+}
+
 .form-heading{
     font-family: europaBold;
 }
