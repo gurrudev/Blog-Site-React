@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import _avatar from '../assets/img/img_avatar.png'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { FaImage } from "react-icons/fa6";
+import { FaHashtag } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 export const WriteBlog = () => {
   const [editorValue, setEditorValue] = useState('');
@@ -16,10 +18,69 @@ export const WriteBlog = () => {
   }
 
   // console.log(editorValue)
+
+  const clearFormRef = useRef(null);
+
+  const handleClearForm = () => {
+    // Access the form and reset its values
+    if (clearFormRef.current) {
+      clearFormRef.current.reset();
+      setEditorValue('')
+    }
+  };
+
+
+  const allTags = ['Adventure', 'Action', 'Travel', 'Landmark', 'Programming'];
+
+  const [selectedTags, setSelectedTags] = useState([]);
+  const maxTags = 2;
+
+  const handleSelectTag = (tag) => {
+    if (selectedTags.length < maxTags && !selectedTags.includes(tag)) {
+      setSelectedTags([...selectedTags, tag]);
+    }
+  };
+
+  const handleRemoveTag = (tagToRemove) => {
+    const updatedTags = selectedTags.filter((tag) => tag !== tagToRemove);
+    setSelectedTags(updatedTags);
+  };
+
+  // console.log(selectedTags)
+
+  const editorRef = useRef(null);
+
+  useEffect(() => {
+    if (editorRef.current) {
+      // Get Quill's container element and set a minimum height
+      const quillEditor = editorRef.current.getElementsByClassName('ql-editor')[0];
+      if (quillEditor) {
+        quillEditor.style.minHeight = '200px'; // Set a minimum height for the editor content
+      }
+    }
+
+    if (editorRef.current) {
+      const quillEditor = editorRef.current.getElementsByClassName('ql-editor')[0];
+      const contentHeight = quillEditor.clientHeight;
+      const maxHeight = 200;
+
+      // Calculate the remaining space available for content before hitting max height
+      const remainingSpace = maxHeight - contentHeight;
+
+      // Adjust the padding bottom of the editor container to fill the remaining space
+      editorRef.current.style.paddingBottom = `${remainingSpace}px`;
+    }
+  }, [setEditorValue]);
+
+  // useEffect(() => {
+
+  // }, [setEditorValue]);
+
+
   return (
     <>
       <div className='p-8 pt-4 lg:p-52 lg:pt-4 md:p-20 md:pt-4'>
-        <form action="">
+        <form action="" ref={clearFormRef}>
           <div className="space-y-12">
             <div className="">
               <div className='flex justify-between'>
@@ -33,31 +94,104 @@ export const WriteBlog = () => {
           </div>
 
           <div className='pt-10'>
-            <div>
-              <div className="mb-6">
-                {/* <label for="email" className="block mb-2 text-sm font-medium text-gray-900">Email address</label> */}
-                <input type="text" id="title" className="text-gray-900 text-3xl form-heading rounded-lg outline-none block w-full" placeholder="Title" required />
+
+            <div className="mb-6">
+              <input type="text" id="title" className="text-gray-900 text-3xl form-heading rounded-lg outline-none block w-full" placeholder="Title..." required autoFocus />
+            </div>
+
+            <div className="mb-6">
+              <div class="flex">
+                <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg ">
+                  <FaImage />
+                </span>
+                <input type="text" id="image_link" class="rounded-none rounded-e-sm  text-gray-900  block flex-1 min-w-0 w-full text-base border-gray-300 form-text p-1.5 outline-none" placeholder="Your wallpaper link here..." />
               </div>
-              <div className="mb-6">
-                <div class="flex">
-                  <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg ">
-                  <FaImage/>
-                  </span>
-                  <input type="text" id="image_link" class="rounded-none rounded-e-sm  text-gray-900  block flex-1 min-w-0 w-full text-base border-gray-300 form-text p-1.5 outline-none" placeholder="https://image.com/wallpape-1.png" />
-                </div>
-              </div>
-              <div className="mb-6">
-                <h2 className="block mb-2 text-base font-semibold form-text text-gray-900">Tell your story...</h2>
-                <ReactQuill
-                  theme="snow"
-                  value={editorValue}
-                  onChange={setEditorValue}
-                  className='form-text text-base'
-                  modules={editorModules}
+            </div>
+
+            <div className='mb-6 form-text'>
+              <div class="flex">
+                <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg ">
+                  <FaHashtag />
+                </span>
+
+                <input
+                  type="text"
+                  placeholder="Enter or select tags below (2)"
+                  class="rounded-none rounded-e-sm  text-gray-900  block flex-1 min-w-0 w-full text-base border-gray-300 form-text p-1.5 outline-none"
+                  disabled={selectedTags.length >= maxTags}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter') {
+                      const tag = event.target.value.trim();
+                      if (tag && !selectedTags.includes(tag)) {
+                        handleSelectTag(tag);
+                        event.target.value = '';
+                      }
+                    }
+                  }}
                 />
+              </div>
+              <div className="mt-4 flex flex-wrap cursor-pointer">
+                {allTags.map((tag, index) => (
+                  <span
+                    key={index}
+                    className={`tag ${selectedTags.includes(tag)
+                      ? 'bg-blue-500 text-white'
+                      : 'bg-gray-300 text-gray-700'
+                      } rounded-full px-3 py-1 mr-2 mb-2`}
+                    disabled={
+                      selectedTags.length >= maxTags && !selectedTags.includes(tag)
+                    }
+                    onClick={() => {
+                      if (!selectedTags.includes(tag)) {
+                        handleSelectTag(tag);
+                      } else {
+                        handleRemoveTag(tag);
+                      }
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <div className='mt-2 cursor-pointer'>
+                Selected Tags:
+                {selectedTags.map((tag, index) => (
+                  <span key={index} className="ml-2">
+                    <span
+                      className="selected-tag bg-yellow-400 text-black rounded px-2 py-1"
+                      onClick={() => handleRemoveTag(tag)}
+                    >
+                      {tag} <span className="close-btn">x</span>
+                    </span>
+                  </span>
+                ))}
               </div>
 
             </div>
+
+            <div className="mb-6">
+              <h2 className="block mb-2 text-base font-semibold form-text text-gray-900">Tell your story:</h2>
+              <div className="editor-wrapper" style={{ border: '1px solid #ccc', padding: '0px', minHeight: '100px' }}>
+                <div className="editor-container" ref={editorRef} style={{ minHeight: '100px', overflow: 'hidden' }}>
+                  <ReactQuill
+                    theme="snow"
+                    value={editorValue}
+                    onChange={setEditorValue}
+                    modules={editorModules}
+                    className="form-text"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className='mb-6'>
+              <div className=' border-b border-gray-300'></div>
+            </div>
+            <div class="mt-6 flex items-center justify-end gap-x-6">
+              <button type="button" class="rounded-md px-3 py-2 text-sm bg-slate-600 font-semibold text-white" onClick={handleClearForm}>Clear</button>
+              <Link to={'/'} class="text-sm font-semibold border-[2px] border-[#7f1d1d] px-3 py-2 rounded-md text-red-900">Cancel</Link>
+            </div>
+
           </div>
         </form>
       </div>

@@ -1,15 +1,15 @@
-.logo{
+.logo {
     /* font-size: 40px; */
     font-weight: bold;
     cursor: pointer;
     font-family: Galins;
 }
 
-.form-heading{
+.form-heading {
     font-family: europaBold;
 }
 
-.form-text{
+.form-text {
     font-family: customeRegular;
 }
 
@@ -17,4 +17,13 @@
 
 
 /*  */
+/* In your CSS file or styles */
+.custom-quill-editor {
+    min-height: 300px;
+    /* Set the minimum height */
+}
 
+/* Optional: If the editor wrapper affects the size, set a minimum height here too */
+.editor-wrapper {
+    min-height: 300px;
+}
