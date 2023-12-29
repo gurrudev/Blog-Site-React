@@ -11,7 +11,7 @@ export const WriteBlog = () => {
 
   const editorModules = {
     toolbar: [
-      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      [{ header: [1, 2, false] }],
       ['bold', 'italic', 'link', 'blockquote', 'code'],
       [{ list: 'ordered' }, { list: 'bullet' }, { indent: '+1' }],
     ]
@@ -135,7 +135,7 @@ export const WriteBlog = () => {
                   <span
                     key={index}
                     className={`tag ${selectedTags.includes(tag)
-                      ? 'bg-blue-500 text-white'
+                      ? 'bg-blue-900 text-white'
                       : 'bg-gray-300 text-gray-700'
                       } rounded-full px-3 py-1 mr-2 mb-2`}
                     disabled={
@@ -158,7 +158,7 @@ export const WriteBlog = () => {
                 {selectedTags.map((tag, index) => (
                   <span key={index} className="ml-2">
                     <span
-                      className="selected-tag bg-yellow-400 text-black rounded px-2 py-1"
+                      className="selected-tag bg-green-800 text-white rounded px-2 py-1"
                       onClick={() => handleRemoveTag(tag)}
                     >
                       {tag} <span className="close-btn">x</span>
@@ -171,8 +171,8 @@ export const WriteBlog = () => {
 
             <div className="mb-6">
               <h2 className="block mb-2 text-base font-semibold form-text text-gray-900">Tell your story:</h2>
-              <div className="editor-wrapper" style={{ border: '1px solid #ccc', padding: '0px', minHeight: '100px' }}>
-                <div className="editor-container" ref={editorRef} style={{ minHeight: '100px', overflow: 'hidden' }}>
+              <div className="editor-wrapper" style={{ minHeight: '100px' }}>
+                <div className="editor-container" ref={editorRef} style={{ minHeight: '100px' }}>
                   <ReactQuill
                     theme="snow"
                     value={editorValue}
@@ -187,8 +187,14 @@ export const WriteBlog = () => {
             <div className='mb-6'>
               <div className=' border-b border-gray-300'></div>
             </div>
+            <div className='mb-6'>
+              <div className='form-text' dangerouslySetInnerHTML={{__html: editorValue}}/>
+            </div>
+            <div className='mb-6'>
+              <div className=' border-b border-gray-300'></div>
+            </div>
             <div class="mt-6 flex items-center justify-end gap-x-6">
-              <button type="button" class="rounded-md px-3 py-2 text-sm bg-slate-600 font-semibold text-white" onClick={handleClearForm}>Clear</button>
+              <button type="button" class="rounded-md border-[2px] border-[#475569] px-3 py-2 text-sm bg-slate-600 font-semibold text-white" onClick={handleClearForm}>Clear</button>
               <Link to={'/'} class="text-sm font-semibold border-[2px] border-[#7f1d1d] px-3 py-2 rounded-md text-red-900">Cancel</Link>
             </div>
 
