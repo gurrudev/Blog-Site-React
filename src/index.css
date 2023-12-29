@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
@@ -27,3 +27,81 @@
     src: url(./assets/fonts/Galins.otf);
 }
 
+
+/* For Quill text editor */
+
+h1 {
+    @apply text-2xl;
+
+}
+
+h2 {
+    @apply text-lg;
+}
+
+a {
+    @apply text-cyan-600;
+}
+
+code {
+    @apply bg-gray-200 rounded px-2 py-1;
+    font-family: 'Fira Code', Console;
+}
+
+blockquote {
+    /* Your custom styles for blockquote */
+    border-left: 5px solid #ccc;
+    margin: 0;
+    padding-left: 10px;
+    /* Add any other styles as needed */
+}
+
+ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+
+/* Ensure that nested ul elements maintain their own style */
+ul {
+    list-style-type: initial;
+    /* Reset to default */
+    padding-left: 20px;
+    /* Indent nested lists */
+}
+
+/* Apply disc list style to direct ul elements */
+ul>li {
+    list-style-type: disc;
+    padding-left: 0px;
+    font-weight: normal;
+}
+
+.ql-indent-1 {
+    padding-left: 20px;
+    /* Adjust the padding to your desired indentation level */
+}
+
+.ql-indent-2 {
+    padding-left: 40px;
+    /* Adjust the padding to your desired indentation level */
+}
+
+.ql-indent-3 {
+    padding-left: 60px;
+    /* Adjust the padding to your desired indentation level */
+}
+
+.ql-indent-4 {
+    padding-left: 80px;
+    /* Adjust the padding to your desired indentation level */
+}
+
+.ql-indent-5 {
+    padding-left: 100px;
+    /* Adjust the padding to your desired indentation level */
+}
+
+.ql-indent-6 {
+    padding-left: 120px;
+    /* Adjust the padding to your desired indentation level */
+}
