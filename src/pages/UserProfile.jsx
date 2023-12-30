@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import _avatar from '../assets/img/img_avatar.png'
 import { FaArrowLeft } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
-import { MdOutlineDateRange } from "react-icons/md";
-import { MdOutlineLocationOn } from "react-icons/md";
+import { MdDateRange } from "react-icons/md";
+import { FaLocationDot } from "react-icons/fa6";
 import Cards from '../components/Cards';
 import { getBlogsData } from '../../api/apiCalls'
 import profile_pic from '../assets/img/img_avatar.png'
@@ -68,7 +68,7 @@ function UserProfile() {
           />
           <div className="absolute inset-0 bg-black opacity-40"></div>
           <div className="absolute top-0 left-0 py-6 px-6">
-            <FaArrowLeft className='form-text text-2xl text-white' onClick={() => navigate('/')} />
+            <FaArrowLeft className='form-text text-2xl text-white cursor-pointer' onClick={() => navigate('/')} />
           </div>
 
           <div className="absolute bottom-0 left-20 lg:left-34 md:left-36 transform -translate-x-1/2 translate-y-1/3 bg-white p-1 rounded-full">
@@ -88,25 +88,34 @@ function UserProfile() {
 
               {/* User Info */}
               <div className="ml-2 lg:ml-14 md:ml-8 mt-2 lg:mt-4 md:mt-4">
-                <h1 className="text-3xl font-bold text-gray-800">John Doe</h1>
-                <p className="text-lg text-gray-600">Title / Position</p>
+                <h1 className="text-3xl form-heading font-bold text-gray-800">John Doe</h1>
+                <p className="text-lg form-text text-gray-600">Web Developer</p>
                 {/* Additional user details */}
-                <div className="text-sm text-gray-600 mt-4 flex flex-col">
-                  <p>Joined January 2023</p>
-                  <p>Location: New York, USA</p>
-                </div>
+
               </div>
             </div>
             {/* User bio */}
-            <div className="mt-4 text-gray-700 ml-2 md:ml-8 lg:ml-14 md:mr-2 max-w-md">
-              <p className="text-lg">
+            <div className="mt-3 text-gray-700 ml-2 md:ml-8 lg:ml-14 md:mr-2 max-w-md">
+              <p className="text-base form-text">
                 An enthusiastic professional passionate about <span className="font-bold">technology</span> and <span className="font-bold">innovation</span>. Constantly exploring new horizons in the tech world.
               </p>
+            </div>
+            <div className="ml-2 lg:ml-14 md:ml-8 mt-2 lg:mt-4 md:mt-4">
+              <div className="text-sm form-text text-gray-600 mt-4 flex gap-2">
+                <div className='flex gap-1'>
+                  <FaLocationDot className='mt-1' />
+                  <p>New York, USA</p>
+                </div>
+                <div className='flex gap-1'>
+                  <MdDateRange className='mt-1' />
+                  <p>Joined January 2023</p>
+                </div>
+              </div>
             </div>
           </div>
           {/* Right Section - Skills */}
           <div className="md:w-1/2 mt-8 lg:mt-0 md:mt-8 md:mr-12 ml-2 lg:ml-0 ">
-            <h2 className="text-2xl font-semibold mb-4">Skills</h2>
+            <h2 className="text-2xl form-text font-bold mb-4">Skills</h2>
             <div className="flex flex-wrap text-md form-text gap-1">
               <span className='bg-blue-900 text-white py-1 px-3 rounded-sm '>Adv</span>
               <span className='bg-red-900 text-white py-1 px-3 rounded-sm '>Adventu</span>

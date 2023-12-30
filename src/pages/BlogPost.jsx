@@ -2,7 +2,7 @@ import React from 'react'
 import pic from '../assets/img/banner.jpg'
 import { FaArrowLeft } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
-import { MdOutlineDateRange } from "react-icons/md";
+import { MdDateRange } from "react-icons/md";
 import Footer from '../components/Footer'
 const BlogPost = () => {
 
@@ -29,7 +29,7 @@ const BlogPost = () => {
                                 <div className='flex gap-2 text-sm'>
                                     <p>by {"Joanna Bob"} &nbsp; ── </p>
                                     <div className='flex gap-1'>
-                                        <span className='pt-1'><MdOutlineDateRange /></span>
+                                        <span className='pt-1'><MdDateRange /></span>
                                         <p>{"June 28, 2023"}</p>
                                     </div>
                                 </div>
