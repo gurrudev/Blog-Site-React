@@ -56,7 +56,7 @@ function FiltersCards() {
             </div>
           </div>
         </div>
-        <div className="recent ">
+        <div className="recent">
           <div className="sub-cards-col">
             <img src={'https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1nfGVufDB8fDB8fHww&w=1000&q=80'} alt="" srcSet="" />
             <div className="sub-card-title">
