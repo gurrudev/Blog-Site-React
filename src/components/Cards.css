@@ -59,11 +59,17 @@
 
 @media (max-width: 1470px) {
   .card-container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 990px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 3rem 2rem;
+  }
+}
+@media (max-width: 690px) {
   .card-container {
     grid-template-columns: repeat(1, 1fr);
     padding: 3rem 2rem;

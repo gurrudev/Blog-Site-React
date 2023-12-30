@@ -37,15 +37,15 @@ function Cards({ cardsData, totalCards, cardAction }) {
                                         <div className="absolute inset-0 flex justify-between p-4 text-white text-lg">
                                             <div className='flex gap-1.5 items-start'>
                                                 <div className='bg-white bg-opacity-20 backdrop-blur-2xl rounded-sm p-1'>
-                                                    <p className='pl-2 pr-2 text-base form-text'>Travel</p>
+                                                    <p className='pl-2 pr-2 text-sm form-text'>Travel</p>
                                                 </div>
                                                 <div className='bg-white bg-opacity-20 backdrop-blur-2xl rounded-sm p-1'>
-                                                    <p className='pl-2 pr-2 text-base form-text'>Adventure</p>
+                                                    <p className='pl-2 pr-2 text-sm form-text'>Adventure</p>
                                                 </div>
                                             </div>
                                             <div className='flex items-start'>
                                                 <div className='bg-white bg-opacity-20 backdrop-blur-2xl rounded-full p-2'>
-                                                    <p className='text-base'><CiImageOn /></p>
+                                                    <p className='text-sm'><CiImageOn /></p>
                                                 </div>
                                             </div>
                                         </div>

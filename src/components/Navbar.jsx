@@ -11,7 +11,7 @@ function Navbar() {
         <div className="logo mt-6 text-white">
           <h1 className="text-2xl sm:text-3xl">BlogHub</h1>
         </div>
-        <Link to={'/login'}>
+        <Link to={'/profile'}>
           <FaUserAlt className="user-icon mt-6 text-1xl sm:text-2xl"/>
         </Link>
       </header>
