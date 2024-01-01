@@ -35,6 +35,8 @@ export const WriteBlog = () => {
   const [selectedTags, setSelectedTags] = useState([]);
   const maxTags = 2;
 
+  // console.log(selectedTags)
+
   const handleSelectTag = (tag) => {
     if (selectedTags.length < maxTags && !selectedTags.includes(tag)) {
       setSelectedTags([...selectedTags, tag]);
