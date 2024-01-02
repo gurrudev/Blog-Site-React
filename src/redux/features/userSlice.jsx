@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const addUser = createAsyncThunk('userDetails/addUser', async (data, { rejectWithValue }) => {
     try {
-        const response = await axios.post('https://social-media-api.cyclic.app/api/users/add', data);
+        const response = await axios.post('https://social-media-api.cyclic.app/api/users/signup', data);
         const result = await response.data;
         return result;
     } catch (error) {
