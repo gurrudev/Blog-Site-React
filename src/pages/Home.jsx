@@ -4,10 +4,17 @@ import Cards from '../components/Cards'
 import FilterContainer from '../components/FilterContainer'
 import Cover from '../components/Cover'
 import {getBlogsData} from '../../api/apiCalls'
+import { useDispatch } from 'react-redux'
 
 const Home = () => {
 
     const [cardData, setCardData] = useState(null)
+
+    const token = localStorage.getItem('token');
+
+    const dispatch = useDispatch()
+
+    // console.log(token)
 
     const BlogCardData = async() => {
         const data = await getBlogsData()

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import bgImg from '../assets/img/cover.jpeg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addUser } from '../redux/features/userSlice'
 import { useAlert } from 'react-alert'
 
 const Signup = () => {
+
+    const navigate = useNavigate()
 
     const [users, setUsers] = useState({})
     const dispatch = useDispatch()
@@ -21,6 +23,7 @@ const Signup = () => {
         if(users.password === users.confpassword){
             console.log(users)
             dispatch(addUser(users))
+            navigate('/login')
         }else{
             alert.show('Invalid Password!')
         }

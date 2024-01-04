@@ -74,10 +74,6 @@ export const WriteBlog = () => {
     }
   }, [setEditorValue]);
 
-  // useEffect(() => {
-
-  // }, [setEditorValue]);
-
 
   return (
     <>
@@ -86,10 +82,10 @@ export const WriteBlog = () => {
           <div className="space-y-12">
             <div className="">
               <div className='flex justify-between'>
-                <h1 className="leading-7 text-3xl text-gray-900 mt-1 logo">BlogHub</h1>
+                <Link to={'/'} className="leading-7 text-3xl text-gray-900 mt-1 logo">BlogHub</Link>
                 <div className='flex justify-between gap-2'>
                   <button className='text-white bg-black p-3 pt-0.5 pb-0.5 lg:pl-3 lg:pt-0 lg:pb-0 rounded-sm form-text'>Post</button>
-                  <img className='rounded-full w-8' src={_avatar} alt="" srcSet="" />
+                  <Link to={'/profile'}><img className='rounded-full w-8' src={_avatar} alt="" srcSet="" /></Link>
                 </div>
               </div>
             </div>
@@ -102,24 +98,24 @@ export const WriteBlog = () => {
             </div>
 
             <div className="mb-6">
-              <div class="flex">
-                <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg ">
+              <div className="flex">
+                <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg ">
                   <FaImage />
                 </span>
-                <input type="text" id="image_link" class="rounded-none rounded-e-sm  text-gray-900  block flex-1 min-w-0 w-full text-base border-gray-300 form-text p-1.5 outline-none" placeholder="Your wallpaper link here..." />
+                <input type="text" id="image_link" className="rounded-none rounded-e-sm  text-gray-900  block flex-1 min-w-0 w-full text-base border-gray-300 form-text p-1.5 outline-none" placeholder="Your wallpaper link here..." />
               </div>
             </div>
 
             <div className='mb-6 form-text'>
-              <div class="flex">
-                <span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg ">
+              <div className="flex">
+                <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg ">
                   <FaHashtag />
                 </span>
 
                 <input
                   type="text"
                   placeholder="Enter or select tags below (2)"
-                  class="rounded-none rounded-e-sm  text-gray-900  block flex-1 min-w-0 w-full text-base border-gray-300 form-text p-1.5 outline-none"
+                  className="rounded-none rounded-e-sm  text-gray-900  block flex-1 min-w-0 w-full text-base border-gray-300 form-text p-1.5 outline-none"
                   disabled={selectedTags.length >= maxTags}
                   onKeyDown={(event) => {
                     if (event.key === 'Enter') {
@@ -195,9 +191,9 @@ export const WriteBlog = () => {
             <div className='mb-6'>
               <div className=' border-b border-gray-300'></div>
             </div>
-            <div class="mt-6 flex items-center justify-end gap-x-6">
-              <button type="button" class="rounded-md border-[2px] border-[#475569] px-3 py-2 text-sm bg-slate-600 font-semibold text-white" onClick={handleClearForm}>Clear</button>
-              <Link to={'/'} class="text-sm font-semibold border-[2px] border-[#7f1d1d] px-3 py-2 rounded-md text-red-900">Cancel</Link>
+            <div className="mt-6 flex items-center justify-end gap-x-6">
+              <button type="button" className="rounded-md border-[2px] border-[#475569] px-3 py-2 text-sm bg-slate-600 font-semibold text-white" onClick={handleClearForm}>Clear</button>
+              <Link to={'/'} className="text-sm font-semibold border-[2px] border-[#7f1d1d] px-3 py-2 rounded-md text-red-900">Cancel</Link>
             </div>
 
           </div>
