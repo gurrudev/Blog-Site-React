@@ -3,7 +3,7 @@ import bgImg from '../assets/img/cover.jpeg'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addUser } from '../redux/features/userSlice'
-import { useAlert } from 'react-alert'
+import toast, { Toaster } from 'react-hot-toast';
 
 const Signup = () => {
 
@@ -12,26 +12,28 @@ const Signup = () => {
     const [users, setUsers] = useState({})
     const dispatch = useDispatch()
 
-    const alert = useAlert()
-
-    const getUsersData = (e)=>{
-        setUsers({...users, [e.target.name] : e.target.value})
+    const getUsersData = (e) => {
+        setUsers({ ...users, [e.target.name]: e.target.value })
         // console.log(users)
     }
 
-    const handleSubmit =()=>{
-        if(users.password === users.confpassword){
+    const handleSubmit = () => {
+        if (users.password === users.confpassword) {
             console.log(users)
             dispatch(addUser(users))
             navigate('/login')
-        }else{
-            alert.show('Invalid Password!')
+        } else {
+            toast.error('Invalid Password, Try Again!')
         }
     }
 
 
     return (
         <>
+            <Toaster
+                position="top-right"
+                reverseOrder={false}
+            />
             <section className="bg-gray-50 relative overflow-hidden h-screen">
                 {/* <!-- New div for the background image --> */}
                 <div className="absolute inset-0 z-0">
@@ -41,7 +43,7 @@ const Signup = () => {
 
                 {/* <!-- Your existing content --> */}
                 <div className="relative z-10 flex flex-col items-center justify-center px-6 py-8 mx-auto h-full lg:mt-0 md:mt-0 sm:mt-0">
-                    
+
                     <div className="w-full bg-white rounded-sm shadow dark:border md:mt-0 sm:max-w-md xl:p-0 ">
                         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                             <h1 className="text-xl font-bold form-heading leading-tight tracking-tight text-gray-900 md:text-2xl ">
@@ -64,7 +66,7 @@ const Signup = () => {
                                     <label htmlFor="confpassword" className="block mb-2 text-sm font-medium text-gray-900 ">Confirm Password</label>
                                     <input type="password" name="confpassword" id="confpassword" onChange={getUsersData} placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-sm focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " required="" />
                                 </div>
-                                
+
                                 <button type="submit" onClick={handleSubmit} className="w-full text-white bg-[black] hover:bg-[#36363b] focus:outline-none  font-medium rounded-sm text-lg px-5 py-2.5 text-center ">Sign up</button>
                                 <p className="text-sm font-light text-gray-500 ">
                                     Already have an account? <Link to={'/login'}><span className="font-medium text-primary-600 hover:underline ">Sign in</span></Link>

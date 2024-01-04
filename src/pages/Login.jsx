@@ -3,16 +3,16 @@ import bgImg from '../assets/img/cover.jpeg'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { userLogin } from '../redux/features/userSlice'
-import { useAlert } from 'react-alert'
+import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
+
+
 
     const navigate = useNavigate()
 
     const [user, setUsers] = useState({})
     const dispatch = useDispatch()
-
-    const alert = useAlert()
 
     const getUsersData = (e) => {
         setUsers({ ...user, [e.target.name]: e.target.value })
@@ -23,15 +23,15 @@ const Login = () => {
     const handleSubmit = async () => {
         try {
             let data = await dispatch(userLogin(user))
-            if(data.payload.massage === 'login successfull!'){
+            if (data.payload.massage === 'login successfull!') {
                 // console.log(data.payload.massage)
                 navigate('/')
             }
-            if(data.payload.message === 'Invalid password'){
-                alert.error("Password is incorrect")
+            if (data.payload.message === 'Invalid password') {
+                toast.error("Password is incorrect!")
             }
-            if(data.payload.message === "User not found"){
-                alert.error("Email does not exist.")
+            if (data.payload.message === "User not found") {
+                toast.error("Email does not exist!")
             }
         } catch (error) {
             console.log(error)
@@ -40,7 +40,10 @@ const Login = () => {
 
     return (
         <>
-
+            <Toaster
+                position="top-right"
+                reverseOrder={false}
+            />
             <section className="bg-gray-50 relative overflow-hidden h-screen">
                 {/* <!-- New div for the background image --> */}
                 <div className="absolute inset-0 z-0">
