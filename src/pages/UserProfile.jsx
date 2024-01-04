@@ -15,6 +15,7 @@ import profileCoverImage from '../assets/img/profileCover.jpg'
 import { RiLockPasswordFill } from "react-icons/ri";
 import { IoLogOut } from "react-icons/io5";
 import { logout } from '../redux/features/userSlice';
+import { IoCreate } from "react-icons/io5";
 
 function UserProfile() {
 
@@ -111,7 +112,11 @@ function UserProfile() {
                     </div>
                     {isOpen && (
                       <div className="absolute right-0 lg:left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg">
-                        <div className="py-1">
+                        <div className="py-1 form-text ">
+                          <Link to={'/create-post'} className="flex items-center cursor-pointer px-4 py-2 text-gray-800 hover:bg-gray-100">
+                            <IoCreate className='text-xl mr-2'/>
+                            Create Post
+                          </Link>
                           <span className="flex items-center cursor-pointer px-4 py-2 text-gray-800 hover:bg-gray-100">
                             <FaUserEdit className='text-xl mr-2'/>
                             Edit Profile

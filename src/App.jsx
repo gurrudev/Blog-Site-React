@@ -28,7 +28,7 @@ function App() {
           
           <Route path='/post/:id' element={<BlogPost/>}/>
           <Route path='/profile' element={<UserProfile/>}/>
-          <Route path='/write-blog' element={<WriteBlog/>}/>
+          <Route path='/create-post' element={<WriteBlog/>}/>
           <Route path="*" element={<NotFound404 />} />
         </Routes>
       </Router>
