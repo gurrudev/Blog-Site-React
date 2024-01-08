@@ -4,10 +4,21 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { FaImage } from "react-icons/fa6";
 import { FaHashtag } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import postCreateBlog from '../utils/postCreateBlog';
+import { useDispatch } from 'react-redux';
+import blogsSlice, { createBlog } from '../redux/features/blogSlice';
+import endpointForUser from '../utils/endpointForUser'
 
 export const WriteBlog = () => {
+  const [blogData, setBlogData] = useState({})
+  const [user, setUserData] = useState({})
   const [editorValue, setEditorValue] = useState('');
+  const dispatch = useDispatch()
+  const allTags = ['Adventure', 'Action', 'Travel', 'Landmark', 'Programming'];
+
+  const [selectedTags, setSelectedTags] = useState([]);
+  const maxTags = 2;
 
   const editorModules = {
     toolbar: [
@@ -17,26 +28,39 @@ export const WriteBlog = () => {
     ]
   }
 
+  const token = localStorage.getItem('token')
+
   // console.log(editorValue)
 
-  const clearFormRef = useRef(null);
-
-  const handleClearForm = () => {
-    // Access the form and reset its values
-    if (clearFormRef.current) {
-      clearFormRef.current.reset();
-      setEditorValue('')
+  const getUserData = async () => {
+    try {
+      const userData = await endpointForUser(token);
+      setUserData(userData.user)
+    } catch (error) {
+      // Handle errors
+      console.error(error);
     }
   };
+  useEffect(() => {
+    getUserData()
+  }, []);
 
-
-  const allTags = ['Adventure', 'Action', 'Travel', 'Landmark', 'Programming'];
-
-  const [selectedTags, setSelectedTags] = useState([]);
-  const maxTags = 2;
+  const getBlogData = (e) => {
+    setBlogData({ ...blogData, [e.target.name]: e.target.value })
+  }
 
   // console.log(selectedTags)
-
+  
+  const handleBlogSubmit = async() => {
+    try {
+      // title, description, image_url, blog_tags, user
+     await postCreateBlog(blogData.title, editorValue, blogData.image_url, selectedTags, user._id)
+     
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  
   const handleSelectTag = (tag) => {
     if (selectedTags.length < maxTags && !selectedTags.includes(tag)) {
       setSelectedTags([...selectedTags, tag]);
@@ -72,20 +96,21 @@ export const WriteBlog = () => {
       // Adjust the padding bottom of the editor container to fill the remaining space
       editorRef.current.style.paddingBottom = `${remainingSpace}px`;
     }
+    
   }, [setEditorValue]);
 
 
   return (
     <>
       <div className='p-8 pt-4 lg:p-52 lg:pt-4 md:p-20 md:pt-4'>
-        <form action="" ref={clearFormRef}>
+        <div method='post'>
           <div className="space-y-12">
             <div className="">
               <div className='flex justify-between'>
                 <Link to={'/'} className="leading-7 text-3xl text-gray-900 mt-1 logo">BlogHub</Link>
                 <div className='flex justify-between gap-2'>
-                  <button className='text-white bg-black p-3 pt-0.5 pb-0.5 lg:pl-3 lg:pt-0 lg:pb-0 rounded-sm form-text'>Post</button>
-                  <Link to={'/profile'}><img className='rounded-full w-8' src={_avatar} alt="" srcSet="" /></Link>
+                  <button type='submit' onClick={handleBlogSubmit} className='text-white bg-black p-3 pt-0.5 pb-0.5 lg:pl-3 lg:pt-0 lg:pb-0 rounded-sm form-text'>Post</button>
+                  <Link to={'/profile'}><img className='rounded-full w-8' src={user.profile_pic} alt="" srcSet="" /></Link>
                 </div>
               </div>
             </div>
@@ -94,7 +119,7 @@ export const WriteBlog = () => {
           <div className='pt-10'>
 
             <div className="mb-6">
-              <input type="text" id="title" className="text-gray-900 text-3xl form-heading rounded-lg outline-none block w-full" placeholder="Title..." required autoFocus />
+              <input type="text" id="title" name='title' onChange={getBlogData} className="text-gray-900 text-3xl form-heading rounded-lg outline-none block w-full" placeholder="Title..." required autoFocus />
             </div>
 
             <div className="mb-6">
@@ -102,7 +127,7 @@ export const WriteBlog = () => {
                 <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg ">
                   <FaImage />
                 </span>
-                <input type="text" id="image_link" className="rounded-none rounded-e-sm  text-gray-900  block flex-1 min-w-0 w-full text-base border-gray-300 form-text p-1.5 outline-none" placeholder="Your wallpaper link here..." />
+                <input type="text" id="image_url" name='image_url' onChange={getBlogData} className="rounded-none rounded-e-sm  text-gray-900  block flex-1 min-w-0 w-full text-base border-gray-300 form-text p-1.5 outline-none" placeholder="Your wallpaper link here..." required />
               </div>
             </div>
 
@@ -186,18 +211,18 @@ export const WriteBlog = () => {
               <div className=' border-b border-gray-300'></div>
             </div>
             <div className='mb-6'>
-              <div className='form-text' dangerouslySetInnerHTML={{__html: editorValue}}/>
+              <div className='form-text' dangerouslySetInnerHTML={{ __html: editorValue }} />
             </div>
             <div className='mb-6'>
               <div className=' border-b border-gray-300'></div>
             </div>
             <div className="mt-6 flex items-center justify-end gap-x-6">
-              <button type="button" className="rounded-md border-[2px] border-[#475569] px-3 py-2 text-sm bg-slate-600 font-semibold text-white" onClick={handleClearForm}>Clear</button>
-              <Link to={'/'} className="text-sm font-semibold border-[2px] border-[#7f1d1d] px-3 py-2 rounded-md text-red-900">Cancel</Link>
+              {/* <button type="button" className="rounded-md border-[2px] border-[#475569] px-3 py-2 text-sm bg-slate-600 font-semibold text-white" onClick={handleClearForm}>Clear</button> */}
+              {/* <Link to={'/'} className="text-sm font-semibold border-[2px] border-[#7f1d1d] px-3 py-2 rounded-md text-red-900">Cancel</Link> */}
             </div>
 
           </div>
-        </form>
+        </div>
       </div>
 
     </>

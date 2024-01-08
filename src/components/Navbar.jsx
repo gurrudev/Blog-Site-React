@@ -4,7 +4,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import endpointForUser from "../../utils/endpointForUser";
+import endpointForUser from "../utils/endpointForUser";
 
 function Navbar() {
 

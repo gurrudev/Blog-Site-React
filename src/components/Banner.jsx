@@ -3,7 +3,7 @@ import './Banner.css'
 import Navbar from './Navbar'
 import { Link, useNavigate } from 'react-router-dom'
 import banner_img from '../assets/img/banner.jpg'
-import endpointForUser from "../../utils/endpointForUser";
+import endpointForUser from "../utils/endpointForUser";
 import buttonText from '@material-tailwind/react/theme/components/button/buttonText'
 
 function Banner() {

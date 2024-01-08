@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import './Cards.css'
 import HomeCardSekeleton from './Skeleton/HomeCardSekeleton'
-import truncate from '../../utils/Truncate'
+import truncate from '../utils/Truncate'
 import { CiImageOn } from "react-icons/ci";
 import { MdOutlineDateRange } from "react-icons/md";
 
