@@ -50,17 +50,25 @@ export const WriteBlog = () => {
   }
 
   // console.log(selectedTags)
-  
-  const handleBlogSubmit = async() => {
+
+  const handleBlogSubmit = async () => {
     try {
       // title, description, image_url, blog_tags, user
-     await postCreateBlog(blogData.title, editorValue, blogData.image_url, selectedTags, user._id)
-     
+      const data = {
+        title: blogData.title,
+        description: editorValue,
+        image_url: blogData.image_url,
+        blog_tags: selectedTags,
+        user: user._id
+      }
+      //  await postCreateBlog(blogData.title, editorValue, blogData.image_url, selectedTags, user._id)
+      const response = await dispatch(createBlog(data))
+      console.log(response.payload)
     } catch (error) {
       console.log(error)
     }
   }
-  
+
   const handleSelectTag = (tag) => {
     if (selectedTags.length < maxTags && !selectedTags.includes(tag)) {
       setSelectedTags([...selectedTags, tag]);
@@ -96,7 +104,7 @@ export const WriteBlog = () => {
       // Adjust the padding bottom of the editor container to fill the remaining space
       editorRef.current.style.paddingBottom = `${remainingSpace}px`;
     }
-    
+
   }, [setEditorValue]);
 
 

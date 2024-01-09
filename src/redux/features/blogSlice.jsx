@@ -1,20 +1,14 @@
 import { createSlice, createAsyncThunk, createAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const createBlog = createAsyncThunk('blogs/createBlog', async (title, description, image_url, blog_tags, user, { rejectWithValue }) => {
+export const createBlog = createAsyncThunk('blogs/createBlog', async (data, { rejectWithValue }) => {
     try {
         const response = await fetch("http://localhost:3001/api/blogs/add", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-                title: title,
-                description: description,
-                image_url: image_url,
-                blog_tags: blog_tags,
-                user: user
-            }),
+            body: JSON.stringify(data),
         });
         return response.json()
     } catch (error) {
