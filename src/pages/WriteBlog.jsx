@@ -9,6 +9,7 @@ import postCreateBlog from '../utils/postCreateBlog';
 import { useDispatch } from 'react-redux';
 import blogsSlice, { createBlog } from '../redux/features/blogSlice';
 import endpointForUser from '../utils/endpointForUser'
+import toast, { Toaster } from 'react-hot-toast';
 
 export const WriteBlog = () => {
   const [blogData, setBlogData] = useState({})
@@ -63,7 +64,13 @@ export const WriteBlog = () => {
       }
       //  await postCreateBlog(blogData.title, editorValue, blogData.image_url, selectedTags, user._id)
       const response = await dispatch(createBlog(data))
-      console.log(response.payload)
+      // console.log(response.payload.message._message)
+
+      if (response.payload.message._message === 'Blog validation failed') {
+        toast.error('Please fill all the fields')
+      }if(response.payload.message === undefined) {
+        toast.success('Your blog has been created :)')
+      }
     } catch (error) {
       console.log(error)
     }
@@ -110,6 +117,10 @@ export const WriteBlog = () => {
 
   return (
     <>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
       <div className='p-8 pt-4 lg:p-52 lg:pt-4 md:p-20 md:pt-4'>
         <div method='post'>
           <div className="space-y-12">
