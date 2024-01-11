@@ -6,6 +6,7 @@ import truncate from '../utils/Truncate'
 import { CiImageOn } from "react-icons/ci";
 import { Link } from 'react-router-dom'
 import cardDate from '../utils/cardDate'
+import strippedString from '../utils/strippedString'
 
 function Cards({ cardsData, totalCards, cardAction }) {
 
@@ -36,7 +37,7 @@ function Cards({ cardsData, totalCards, cardAction }) {
                             cardsData?.filter((item, index) => index < totalCards)?.map((item, index) => (
                                 <div className="card " key={index}>
                                     <div className="relative">
-                                        <img src={item.image_url} alt="" />
+                                        <img src={item.image_url} className='w-full h-[210px]'  alt="" />
                                         <div className="absolute inset-0 flex justify-between p-4 text-white text-lg">
                                             <div className='flex gap-1.5 items-start'>
                                                 <div className='flex gap-1.5 items-start'>
@@ -58,10 +59,10 @@ function Cards({ cardsData, totalCards, cardAction }) {
 
                                     <h2 className='uppercase'>{item.title}</h2>
                                     <div className="user-details text-slate-700">
-                                        <p className='text-[15px]'> by {item.user}</p>
+                                        <p className='text-[15px]'> by {item.username}</p>
                                         <p className='text-[15px]'>{cardDate(item.createdAt)}</p>
                                     </div>
-                                    <p className='des text-justify'>{truncate(item.description)}</p>
+                                    <p className='des text-justify'>{truncate(strippedString(item.description))}</p>
                                     <Link to={`/post/${item._id}`}>View Post</Link> <span className='underline'></span>
                                 </div>
                             ))

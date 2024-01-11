@@ -55,7 +55,7 @@ const BlogPost = () => {
 
                                 <h1 className="text-[30px] leading-tight uppercase pb-2 form-heading">{post.title}</h1>
                                 <div className='flex gap-2 text-sm'>
-                                    <p>by {post.user} &nbsp; ── </p>
+                                    <p>by {post.username} &nbsp; ── </p>
                                     <div className='flex gap-1'>
                                         <span className='pt-1'><MdDateRange /></span>
                                         <p>{cardDate(post.createdAt)}</p>
