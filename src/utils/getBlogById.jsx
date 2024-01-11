@@ -1,6 +1,6 @@
 const getBlogById = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3001/api/blogs/${id}`);
+      const response = await fetch(`https://social-media-api.cyclic.app/api/blogs/${id}`);
   
   
       const result = await response.json();
