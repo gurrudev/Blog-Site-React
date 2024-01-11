@@ -7,7 +7,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import Cards from '../components/Cards';
 import { getBlogsData } from '../../api/apiCalls'
 import { useDispatch, useSelector } from 'react-redux';
-import joinedDate from '../utils/joinedDate';
+import joinedDate from '../utils/joinedDate'
 import endpointForUser from '../utils/endpointForUser';
 import { BsThreeDots } from "react-icons/bs";
 import { FaUserEdit } from "react-icons/fa";

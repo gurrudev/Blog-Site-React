@@ -25,9 +25,11 @@ export const WriteBlog = () => {
     toolbar: [
       [{ header: [1, 2, false] }],
       ['bold', 'italic', 'link', 'blockquote', 'code'],
-      [{ list: 'ordered' }, { list: 'bullet' }, { indent: '+1' }],
+      [{ list: 'ordered' }, { indent: '+1' }],
     ]
   }
+
+  console.log(user)
 
   const token = localStorage.getItem('token')
 
@@ -66,11 +68,11 @@ export const WriteBlog = () => {
       const response = await dispatch(createBlog(data))
       // console.log(response.payload.message._message)
 
-      if (response.payload.message._message === 'Blog validation failed') {
-        toast.error('Please fill all the fields')
-      }if(response.payload.message === undefined) {
-        toast.success('Your blog has been created :)')
-      }
+      // if (response.payload.message._message === 'Blog validation failed') {
+      //   toast.error('Please fill all the fields')
+      // }if(response.payload.message === undefined) {
+      //   toast.success('Your blog has been created :)')
+      // }
     } catch (error) {
       console.log(error)
     }

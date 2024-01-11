@@ -4,7 +4,8 @@ import './Cards.css'
 import HomeCardSekeleton from './Skeleton/HomeCardSekeleton'
 import truncate from '../utils/Truncate'
 import { CiImageOn } from "react-icons/ci";
-import { MdOutlineDateRange } from "react-icons/md";
+import { Link } from 'react-router-dom'
+import cardDate from '../utils/cardDate'
 
 function Cards({ cardsData, totalCards, cardAction }) {
 
@@ -14,6 +15,8 @@ function Cards({ cardsData, totalCards, cardAction }) {
     const dataFn = () => {
         setIsLoading(false)
     }
+
+    console.log(cardsData)
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -33,7 +36,7 @@ function Cards({ cardsData, totalCards, cardAction }) {
                             cardsData?.filter((item, index) => index < totalCards)?.map((item, index) => (
                                 <div className="card " key={index}>
                                     <div className="relative">
-                                        <img src={"https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1nfGVufDB8fDB8fHww&w=1000&q=80"} alt="Your Image" />
+                                        <img src={item.image_url} alt="" />
                                         <div className="absolute inset-0 flex justify-between p-4 text-white text-lg">
                                             <div className='flex gap-1.5 items-start'>
                                                 <div className='bg-white bg-opacity-20 backdrop-blur-2xl rounded-sm p-1'>
@@ -53,11 +56,11 @@ function Cards({ cardsData, totalCards, cardAction }) {
 
                                     <h2 className='uppercase'>{item.title}</h2>
                                     <div className="user-details text-slate-700">
-                                        <p className='text-[15px]'> by Ashutosh Pawar</p>
-                                        <p className='text-[15px]'> June 28, 2023</p>
+                                        <p className='text-[15px]'> by {item._id}</p>
+                                        <p className='text-[15px]'>{cardDate(item.createdAt)}</p>
                                     </div>
                                     <p className='des text-justify'>{truncate(item.description)}</p>
-                                    <a href="">View Post</a> <span className='underline'></span>
+                                    <Link to={`/post/${item._id}`}>View Post</Link> <span className='underline'></span>
                                 </div>
                             ))
                     }

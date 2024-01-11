@@ -18,7 +18,7 @@ function Footer() {
         </p>
         <div className="flex justify-center items-center space-x-1">
           <div className='footer-icon'>
-            <a onClick={()=>navigate('/post/on')} className='cursor-pointer'><GrInstagram /></a>
+            <a href="https://instagram.com/gurrudev"><GrInstagram /></a>
             <a href="https://linkedin.com/in/gurrudev"><IoLogoLinkedin/></a>
             <a href="https://github.com/gurrudev"><FaGithub/></a>
             <a href="https://stackoverflow.com/users/20042850/ashutosh-pawar"><FaStackOverflow/></a>

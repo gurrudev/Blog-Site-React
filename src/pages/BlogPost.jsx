@@ -1,12 +1,27 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import pic from '../assets/img/banner.jpg'
 import { FaArrowLeft } from "react-icons/fa6";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { MdDateRange } from "react-icons/md";
 import Footer from '../components/Footer'
+import getBlogById from '../utils/getBlogById';
+
 const BlogPost = () => {
 
-    const navigate = useNavigate();
+    const navigate = useNavigate()
+    const paramID = useParams()
+    const [post, setPost] = useState({});
+
+    const getBlog = async()=>{
+        const response = await getBlogById(paramID.id)
+        setPost(response)
+    }
+
+    useEffect(()=>{
+        getBlog()
+    },[])
+
+console.log(post)
 
     return (
         <>
@@ -14,7 +29,7 @@ const BlogPost = () => {
 
                 <div className="relative overflow-hidden">
                     <div className="w-full h-80">
-                        <img className="w-full h-full object-cover" src={pic} alt="Image" />
+                        <img className="w-full h-full object-cover" src={post.image_url} alt="" />
                         <div className="absolute inset-0 bg-black" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}></div>
                         <div className="absolute top-0 left-0 p-6 text-white text-2xl cursor-pointer" onClick={() => navigate('/')}>
                             <FaArrowLeft />
@@ -25,7 +40,7 @@ const BlogPost = () => {
                                     <span className='bg-white bg-opacity-20 backdrop-blur-2xl py-1 px-2 rounded-sm'>Travel</span>
                                     <span className='bg-white bg-opacity-20 backdrop-blur-2xl py-1 px-2 rounded-sm'>Adventure</span>
                                 </div>
-                                <h1 className="text-[30px] leading-tight uppercase pb-2 form-heading">Best practices and the for successful prototypes.</h1>
+                                <h1 className="text-[30px] leading-tight uppercase pb-2 form-heading">{post.title}</h1>
                                 <div className='flex gap-2 text-sm'>
                                     <p>by {"Joanna Bob"} &nbsp; ── </p>
                                     <div className='flex gap-1'>
