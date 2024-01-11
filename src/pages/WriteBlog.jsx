@@ -62,7 +62,8 @@ export const WriteBlog = () => {
         description: editorValue,
         image_url: blogData.image_url,
         blog_tags: selectedTags,
-        user: user._id
+        user: user._id,
+        username: user.name
       }
       //  await postCreateBlog(blogData.title, editorValue, blogData.image_url, selectedTags, user._id)
       const response = await dispatch(createBlog(data))

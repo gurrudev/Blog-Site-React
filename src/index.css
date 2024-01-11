@@ -61,7 +61,6 @@ ol {
     padding-left: 20px;
 }
 
-/* Ensure that nested ul elements maintain their own style */
 ul {
     list-style-type: initial;
     /* Reset to default */
@@ -70,7 +69,7 @@ ul {
 }
 
 /* Apply disc list style to direct ul elements */
-ul>li {
+ul > li {
     list-style-type: disc;
     padding-left: 0px;
     font-weight: normal;

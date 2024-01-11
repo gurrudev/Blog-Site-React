@@ -16,7 +16,7 @@ function Cards({ cardsData, totalCards, cardAction }) {
         setIsLoading(false)
     }
 
-    console.log(cardsData)
+    // console.log(cardsData)
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -39,15 +39,17 @@ function Cards({ cardsData, totalCards, cardAction }) {
                                         <img src={item.image_url} alt="" />
                                         <div className="absolute inset-0 flex justify-between p-4 text-white text-lg">
                                             <div className='flex gap-1.5 items-start'>
-                                                <div className='bg-white bg-opacity-20 backdrop-blur-2xl rounded-sm p-1'>
-                                                    <p className='pl-2 pr-2 text-xs form-text'>Travel</p>
+                                                <div className='flex gap-1.5 items-start'>
+                                                    {item.blog_tags && item.blog_tags.map((tag, index) => (
+                                                        <div key={index} className='bg-white bg-opacity-20 backdrop-blur-2xl rounded-sm p-1 shadow-lg'>
+                                                            <p className='pl-2 pr-2 text-xs form-text'>{tag}</p>
+                                                        </div>
+                                                    ))}
                                                 </div>
-                                                <div className='bg-white bg-opacity-20 backdrop-blur-2xl rounded-sm p-1'>
-                                                    <p className='pl-2 pr-2 text-xs form-text'>Adventure</p>
-                                                </div>
+
                                             </div>
                                             <div className='flex items-start'>
-                                                <div className='bg-white bg-opacity-20 backdrop-blur-2xl rounded-full p-2'>
+                                                <div className='bg-white bg-opacity-20 backdrop-blur-2xl rounded-full p-2 shadow-lg'>
                                                     <p className='text-base'><CiImageOn /></p>
                                                 </div>
                                             </div>
@@ -56,7 +58,7 @@ function Cards({ cardsData, totalCards, cardAction }) {
 
                                     <h2 className='uppercase'>{item.title}</h2>
                                     <div className="user-details text-slate-700">
-                                        <p className='text-[15px]'> by {item._id}</p>
+                                        <p className='text-[15px]'> by {item.user}</p>
                                         <p className='text-[15px]'>{cardDate(item.createdAt)}</p>
                                     </div>
                                     <p className='des text-justify'>{truncate(item.description)}</p>
