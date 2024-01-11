@@ -43,9 +43,9 @@ const BlogPost = () => {
                         </div>
                         <div className='py-4  px-6  mx-auto w-full max-w-3xl md:pl-14 md:pr-14'>
                             <div className="max-w-3xl absolute bottom-1 text-white pb-6">
-                                <div className='flex gap-2 pb-3 form-text text-sm'>
+                                <div className='flex gap-2 pb-2 form-text text-sm'>
                                     {post.blog_tags && (
-                                        <div className='flex gap-2 pb-3 form-text text-sm'>
+                                        <div className='flex gap-2 form-text text-sm'>
                                             {post.blog_tags.map((tag, index) => (
                                                 <span key={index} className='bg-white bg-opacity-20 backdrop-blur-2xl py-1 px-2 rounded-sm'>{tag}</span>
                                             ))}
