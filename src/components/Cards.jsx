@@ -30,12 +30,13 @@ function Cards({ cardsData, totalCards, cardAction }) {
     // For card 
     return (
         <>
-            <main ref={animate} >
+            <main ref={animate}>
                 <div className='card-container p-8 sm:p-20 sm:pt-10'>
-                    {
-                        isLoading ? Array(totalCards).fill(0).map((d, i) => (<HomeCardSekeleton key={i} />)) :
-                            cardsData?.filter((item, index) => index < totalCards)?.map((item, index) => (
-                                <div className="card " key={index}>
+                    {isLoading ? (
+                        Array(totalCards).fill(0).map((_, i) => (<HomeCardSekeleton key={i} />))
+                    ) : (
+                        cardsData?.filter((item, index) => index < totalCards)?.map((item, index) => (
+                            <div className="card" key={index}>
                                     <div className="relative">
                                         <img src={item.image_url} className='w-full h-[210px]'  alt="" />
                                         <div className="absolute inset-0 flex justify-between p-4 text-white text-lg">
@@ -64,13 +65,13 @@ function Cards({ cardsData, totalCards, cardAction }) {
                                     </div>
                                     <p className='des text-justify'>{truncate(strippedString(item.description))}</p>
                                     <Link to={`/post/${item._id}`}>View Post</Link> <span className='underline'></span>
-                                </div>
-                            ))
-                    }
+                                    </div>
+                        ))
+                    )}
                 </div>
             </main>
         </>
-    )
+    );
 }
 
 export default Cards
