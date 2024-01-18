@@ -120,10 +120,10 @@ function UserProfile() {
                             <IoCreate className='text-xl mr-2' />
                             Create Post
                           </Link>
-                          <span className="flex items-center cursor-pointer px-4 py-2 text-gray-800 hover:bg-gray-100">
+                          <Link to={'/edit-profile'} className="flex items-center cursor-pointer px-4 py-2 text-gray-800 hover:bg-gray-100">
                             <FaUserEdit className='text-xl mr-2' />
                             Edit Profile
-                          </span>
+                          </Link>
                           <span className="flex items-center cursor-pointer px-4 py-2 text-gray-800 hover:bg-gray-100">
                             <RiLockPasswordFill className='text-lg ml-[-2px] mr-3' />
                             Change Password

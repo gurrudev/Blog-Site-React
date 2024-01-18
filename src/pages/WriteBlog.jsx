@@ -29,7 +29,7 @@ export const WriteBlog = () => {
     ]
   }
 
-  console.log(user)
+  // console.log(user)
 
   const token = localStorage.getItem('token')
 
@@ -125,7 +125,7 @@ export const WriteBlog = () => {
         reverseOrder={false}
       />
       <div className='p-8 pt-4 lg:p-52 lg:pt-4 md:p-20 md:pt-4'>
-        <div method='post'>
+        <div>
           <div className="space-y-12">
             <div className="">
               <div className='flex justify-between'>
