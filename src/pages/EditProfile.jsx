@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import endpointForUser from '../utils/endpointForUser'
+import { FaUserCircle } from "react-icons/fa";
+import { } from "react-icons/md";
 
 const EditProfile = () => {
 
     const [user, setUserData] = useState({})
+    const [profileData, setProfileData] = useState({})
 
     const token = localStorage.getItem('token')
 
     //   console.log(user)
+
+    const getProfileData = (e) => {
+        setProfileData({ ...profileData, [e.target.name]: e.target.value })
+    }
 
     const getUserData = async () => {
         try {
@@ -22,103 +29,42 @@ const EditProfile = () => {
     useEffect(() => {
         getUserData()
     }, []);
+    
     return (
         <>
-            <div className="flex items-center justify-center p-12">
-                <div className=" bg-white">
-                <div className="space-y-12">
-                    <div className="">
-                        <div className='flex justify-between'>
-                            <Link to={'/'} className="leading-7 text-3xl text-gray-900 mt-1 logo">BlogHub</Link>
-                            <div className='flex justify-between gap-2'>
-                                <button type='submit' onClick={'handleBlogSubmit'} className='text-white bg-black p-3 pt-0.5 pb-0.5 lg:pl-3 lg:pt-0 lg:pb-0 rounded-sm form-text'>Post</button>
-                                <Link to={'/profile'}><img className='rounded-full w-8' src={user.profile_pic} alt="" srcSet="" /></Link>
+            <div className='p-8 pt-4 lg:p-52 lg:pt-4 md:p-20 md:pt-4'>
+                <div>
+                    <div className="space-y-12">
+                        <div className="">
+                            <div className='flex justify-between'>
+                                <Link to={'/'} className="leading-7 text-3xl text-gray-900 mt-1 logo">BlogHub</Link>
+                                <div className='flex justify-between gap-2'>
+                                    {/* <button type='submit' onClick={'handleBlogSubmit'} className='text-white bg-black p-3 pt-0.5 pb-0.5 lg:pl-3 lg:pt-0 lg:pb-0 rounded-sm form-text'>Post</button> */}
+                                    <Link to={'/profile'}><img className='rounded-full w-8' src={user.profile_pic} alt="" srcSet="" /></Link>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                    <form>
-                        <div className="mb-5">
-                            <label htmlFor="name" className="mb-3 block text-base font-medium text-[#07074D]">
-                                Full Name
-                            </label>
-                            <input type="text" name="name" id="name" placeholder="Full Name"
-                                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
-                        </div>
-                        <div className="mb-5">
-                            <label htmlFor="phone" className="mb-3 block text-base font-medium text-[#07074D]">
-                                Phone Number
-                            </label>
-                            <input type="text" name="phone" id="phone" placeholder="Enter your phone number"
-                                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
-                        </div>
-                        <div className="mb-5">
-                            <label htmlFor="email" className="mb-3 block text-base font-medium text-[#07074D]">
-                                Email Address
-                            </label>
-                            <input type="email" name="email" id="email" placeholder="Enter your email"
-                                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
-                        </div>
-                        <div className="-mx-3 flex flex-wrap">
-                            <div className="w-full px-3 sm:w-1/2">
-                                <div className="mb-5">
-                                    <label htmlFor="date" className="mb-3 block text-base font-medium text-[#07074D]">
-                                        Date
-                                    </label>
-                                    <input type="date" name="date" id="date"
-                                        className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
-                                </div>
-                            </div>
-                            <div className="w-full px-3 sm:w-1/2">
-                                <div className="mb-5">
-                                    <label htmlFor="time" className="mb-3 block text-base font-medium text-[#07074D]">
-                                        Time
-                                    </label>
-                                    <input type="time" name="time" id="time"
-                                        className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
-                                </div>
-                            </div>
+
+                    <div className='pt-10'>
+
+                        <div className="mb-6">
+                            <input type="text" id="name" name='name' className="text-gray-900 text-3xl form-heading rounded-lg outline-none block w-full" placeholder="Name ..." required autoFocus />
                         </div>
 
-                        <div className="mb-5 pt-3">
-                            <label className="mb-5 block text-base font-semibold text-[#07074D] sm:text-xl">
-                                Address Details
-                            </label>
-                            <div className="-mx-3 flex flex-wrap">
-                                <div className="w-full px-3 sm:w-1/2">
-                                    <div className="mb-5">
-                                        <input type="text" name="area" id="area" placeholder="Enter area"
-                                            className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
-                                    </div>
-                                </div>
-                                <div className="w-full px-3 sm:w-1/2">
-                                    <div className="mb-5">
-                                        <input type="text" name="city" id="city" placeholder="Enter city"
-                                            className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
-                                    </div>
-                                </div>
-                                <div className="w-full px-3 sm:w-1/2">
-                                    <div className="mb-5">
-                                        <input type="text" name="state" id="state" placeholder="Enter state"
-                                            className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
-                                    </div>
-                                </div>
-                                <div className="w-full px-3 sm:w-1/2">
-                                    <div className="mb-5">
-                                        <input type="text" name="post-code" id="post-code" placeholder="Post Code"
-                                            className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
-                                    </div>
-                                </div>
-                            </div>
+                        <div className="mb-6">
+                            <input type="text" id="user_title" name='user_title' className="text-gray-900 text-xl form-heading rounded-lg outline-none block w-full" placeholder="Title ...  eg. Web Developer" required autoFocus />
                         </div>
 
-                        <div>
-                            <button
-                                className="hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
-                                Book Appointment
-                            </button>
+                        <div className="mb-6">
+                            <div className="flex">
+                                <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg ">
+                                    <FaUserCircle/>
+                                </span>
+                                <input type="text" id="profile_pic" name='profile_pic' onChange={getProfileData} className="rounded-none rounded-e-sm  text-gray-900  block flex-1 min-w-0 w-full text-base border-gray-300 form-text p-1.5 outline-none" placeholder="Your profile pic link here..." required />
+                            </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </>
