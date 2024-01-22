@@ -11,7 +11,7 @@ const EditProfile = () => {
 
     const token = localStorage.getItem('token')
 
-    //   console.log(user)
+    // console.log(user)
 
     const getProfileData = (e) => {
         setProfileData({ ...profileData, [e.target.name]: e.target.value })
@@ -63,6 +63,10 @@ const EditProfile = () => {
                                 </span>
                                 <input type="text" id="profile_pic" name='profile_pic' onChange={getProfileData} className="rounded-none rounded-e-sm  text-gray-900  block flex-1 min-w-0 w-full text-base border-gray-300 form-text p-1.5 outline-none" placeholder="Your profile pic link here..." required />
                             </div>
+                        </div>
+
+                        <div className="mb-6">
+                            <input type="text" id="user_title" name='user_title' className="text-gray-900 text-xl form-heading rounded-lg outline-none block w-full" placeholder="Title ...  eg. Web Developer" required autoFocus />
                         </div>
                     </div>
                 </div>
