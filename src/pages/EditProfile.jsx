@@ -49,24 +49,28 @@ const EditProfile = () => {
                     <div className='pt-10'>
 
                         <div className="mb-6">
-                            <input type="text" id="name" name='name' className="text-gray-900 text-3xl form-heading rounded-lg outline-none block w-full" placeholder="Name ..." required autoFocus />
+                        <label htmlFor="skills" className='form-text font-semibold'>Name</label>
+                            <input type="text" id="name" name='name' className="text-gray-900 border border-gray-400 text-base form-text py-1.5 px-3 mt-1 rounded-sm  outline-none block w-full" placeholder="Ex. Jon Doe" required autoFocus />
                         </div>
 
                         <div className="mb-6">
-                            <input type="text" id="user_title" name='user_title' className="text-gray-900 text-xl form-heading rounded-lg outline-none block w-full" placeholder="Title ...  eg. Web Developer" required autoFocus />
+                        <label htmlFor="skills" className='form-text font-semibold'>User Title</label>
+                            <input type="text" id="user_title" name='user_title' className="text-gray-900 form-text border border-gray-400 text-base form-text py-1.5 px-3 mt-1 rounded-sm outline-none block w-full" placeholder="Ex. Web Developer" required autoFocus />
                         </div>
 
                         <div className="mb-6">
+                        <label htmlFor="skills" className='form-text font-semibold'>Profile pic URL</label>
                             <div className="flex">
-                                <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg ">
+                                <span className="inline-flex items-center px-3 text-base mt-1 text-gray-900 bg-gray-100 border border-gray-400 rounded-s-sm ">
                                     <FaUserCircle/>
                                 </span>
-                                <input type="text" id="profile_pic" name='profile_pic' onChange={getProfileData} className="rounded-none rounded-e-sm  text-gray-900  block flex-1 min-w-0 w-full text-base border-gray-300 form-text p-1.5 outline-none" placeholder="Your profile pic link here..." required />
+                                <input type="text" id="profile_pic" name='profile_pic' onChange={getProfileData} className="rounded-none mt-1 rounded-e-sm border border-gray-400 text-gray-900  block flex-1 min-w-0 w-full text-base form-text py-1.5 px-3 outline-none" placeholder="Your profile pic link here..." required />
                             </div>
                         </div>
 
                         <div className="mb-6">
-                            <input type="text" id="user_title" name='user_title' className="text-gray-900 text-xl form-heading rounded-lg outline-none block w-full" placeholder="Title ...  eg. Web Developer" required autoFocus />
+                            <label htmlFor="skills" className='form-text font-semibold'>Skills</label>
+                            <input type="text" id="skills" name='skills' className="text-gray-900 border border-gray-400 text-base form-text py-1.5 px-3 mt-1 rounded-sm outline-none block w-full" placeholder="Ex. Writing, Java," required autoFocus />
                         </div>
                     </div>
                 </div>
