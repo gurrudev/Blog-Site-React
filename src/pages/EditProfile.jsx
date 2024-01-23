@@ -1,15 +1,25 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect, useRef } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import endpointForUser from '../utils/endpointForUser'
 import { FaUserCircle } from "react-icons/fa";
 import { } from "react-icons/md";
+import ReactQuill from 'react-quill';
 
 const EditProfile = () => {
 
     const [user, setUserData] = useState({})
     const [profileData, setProfileData] = useState({})
+    const [editorValue, setEditorValue] = useState(null)
+
+    const navigate = useNavigate()
 
     const token = localStorage.getItem('token')
+
+    const editorModules = {
+        toolbar: [
+            ['bold', 'italic', 'link'],
+        ]
+    }
 
     // console.log(user)
 
@@ -26,10 +36,36 @@ const EditProfile = () => {
             console.error(error);
         }
     };
+
     useEffect(() => {
         getUserData()
     }, []);
-    
+
+    const editorRef = useRef(null);
+
+    useEffect(() => {
+        if (editorRef.current) {
+            // Get Quill's container element and set a minimum height
+            const quillEditor = editorRef.current.getElementsByClassName('ql-editor')[0];
+            if (quillEditor) {
+                quillEditor.style.minHeight = '100px'; // Set a minimum height for the editor content
+            }
+        }
+
+        if (editorRef.current) {
+            const quillEditor = editorRef.current.getElementsByClassName('ql-editor')[0];
+            const contentHeight = quillEditor.clientHeight;
+            const maxHeight = 100;
+
+            // Calculate the remaining space available for content before hitting max height
+            const remainingSpace = maxHeight - contentHeight;
+
+            // Adjust the padding bottom of the editor container to fill the remaining space
+            editorRef.current.style.paddingBottom = `${remainingSpace}px`;
+        }
+
+    }, [setEditorValue]);
+
     return (
         <>
             <div className='p-8 pt-4 lg:p-52 lg:pt-4 md:p-20 md:pt-4'>
@@ -49,28 +85,49 @@ const EditProfile = () => {
                     <div className='pt-10'>
 
                         <div className="mb-6">
-                        <label htmlFor="skills" className='form-text font-semibold'>Name</label>
-                            <input type="text" id="name" name='name' className="text-gray-900 border border-gray-400 text-base form-text py-1.5 px-3 mt-1 rounded-sm  outline-none block w-full" placeholder="Ex. Jon Doe" required autoFocus />
+                            <label htmlFor="skills" className='text-gray-800 form-text font-semibold'>Name</label>
+                            <input type="text" id="name" name='name' className="text-gray-900 border border-gray-300 text-base form-text py-1.5 px-3 mt-1 rounded-sm  outline-none block w-full" placeholder="Jon Doe" required autoFocus />
                         </div>
 
                         <div className="mb-6">
-                        <label htmlFor="skills" className='form-text font-semibold'>User Title</label>
-                            <input type="text" id="user_title" name='user_title' className="text-gray-900 form-text border border-gray-400 text-base form-text py-1.5 px-3 mt-1 rounded-sm outline-none block w-full" placeholder="Ex. Web Developer" required autoFocus />
+                            <label htmlFor="skills" className='text-gray-800 form-text font-semibold'>User Title</label>
+                            <input type="text" id="user_title" name='user_title' className="text-gray-900 form-text border border-gray-300 text-base form-text py-1.5 px-3 mt-1 rounded-sm outline-none block w-full" placeholder="Writer" required />
                         </div>
 
                         <div className="mb-6">
-                        <label htmlFor="skills" className='form-text font-semibold'>Profile pic URL</label>
+                            <label htmlFor="skills" className='text-gray-800 form-text font-semibold'>Profile pic URL</label>
                             <div className="flex">
-                                <span className="inline-flex items-center px-3 text-base mt-1 text-gray-900 bg-gray-100 border border-gray-400 rounded-s-sm ">
-                                    <FaUserCircle/>
+                                <span className="inline-flex items-center px-3 text-base mt-1 text-gray-600 bg-gray-100 border border-gray-300 rounded-s-sm ">
+                                    <FaUserCircle />
                                 </span>
-                                <input type="text" id="profile_pic" name='profile_pic' onChange={getProfileData} className="rounded-none mt-1 rounded-e-sm border border-gray-400 text-gray-900  block flex-1 min-w-0 w-full text-base form-text py-1.5 px-3 outline-none" placeholder="Your profile pic link here..." required />
+                                <input type="text" id="profile_pic" name='profile_pic' onChange={getProfileData} className="rounded-none mt-1 rounded-e-sm border border-gray-300 text-gray-900  block flex-1 min-w-0 w-full text-base form-text py-1.5 px-3 outline-none" placeholder="Your profile pic link here..." required />
                             </div>
                         </div>
 
                         <div className="mb-6">
-                            <label htmlFor="skills" className='form-text font-semibold'>Skills</label>
-                            <input type="text" id="skills" name='skills' className="text-gray-900 border border-gray-400 text-base form-text py-1.5 px-3 mt-1 rounded-sm outline-none block w-full" placeholder="Ex. Writing, Java," required autoFocus />
+                            <label htmlFor="skills" className='text-gray-800 form-text font-semibold'>Skills</label>
+                            <input type="text" id="skills" name='skills' className="text-gray-900 border border-gray-300 text-base form-text py-1.5 px-3 mt-1 rounded-sm outline-none block w-full" placeholder="Writing, Java," required />
+                        </div>
+
+                        <div className="mb-6">
+                            <label htmlFor="skills" className='text-gray-800 form-text font-semibold'>About</label>
+                            <div className="editor-container mt-1" ref={editorRef}>
+                                <ReactQuill
+                                    theme="snow"
+                                    value={editorValue}
+                                    onChange={setEditorValue}
+                                    modules={editorModules}
+                                    className="form-text"
+                                />
+                            </div>
+                        </div>
+                        <div className='mb-6'>
+                            <div className='border-b border-gray-300'></div>
+                        </div>
+
+                        <div className="mb-6 flex items-center justify-end gap-2">
+                            <button type='button' onClick={()=>navigate('/profile')} className='form-text border-red-900 border-2 text-red-900 py-1 px-3 rounded-sm'>Cancle</button>
+                            <button type="button" onClick={()=> alert('hell')} className="bg-gray-900 border-2 border-gray-900 text-white form-text py-1 px-3 rounded-sm">Save</button>
                         </div>
                     </div>
                 </div>
