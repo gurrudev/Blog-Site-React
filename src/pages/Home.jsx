@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux'
 
 const Home = () => {
 
-    const [cardData, setCardData] = useState(null)
+    const [cardData, setCardData] = useState([])
 
     const token = localStorage.getItem('token');
 
