@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const createBlog = createAsyncThunk('blogs/createBlog', async (data, { rejectWithValue }) => {
     try {
-        const response = await fetch("http://localhost:3001/api/blogs/add", {
+        const response = await fetch("https://social-media-api.cyclic.app/api/blogs/add", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

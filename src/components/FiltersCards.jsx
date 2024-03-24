@@ -10,9 +10,11 @@ function FiltersCards({ cardData }) {
 
   console.log(cardData)
 
-  let filteredData = cardData.slice(1, 4)
+  let filteredData = cardData.slice(1, 5)
 
   console.log(filteredData)
+
+  let recentData = cardData.slice(0, 5)
 
   return (
     <>
@@ -47,46 +49,15 @@ function FiltersCards({ cardData }) {
           </div>
         </div>
         <div className="recent">
-          <div className="sub-cards-col">
-            <img src={'https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1nfGVufDB8fDB8fHww&w=1000&q=80'} alt="" srcSet="" />
+          {recentData.map((item, index)=>(
+          <div className="sub-cards-col" key={index}>
+            <img src={item.image_url} alt="" srcSet="" />
             <div className="sub-card-title">
-              <p className='uppercase overflow-wrap text-sm'>TitleTitleTitle</p>
-              <span className='text-sm text-slate-700'>June 28, 2023</span>
+              <p className='uppercase overflow-wrap text-sm'>{item.title}</p>
+              <span className='text-sm text-slate-700'>{cardDate(item.createdAt)}</span>
             </div>
           </div>
-
-
-          <div className="sub-cards-col">
-            <img src={'https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1nfGVufDB8fDB8fHww&w=1000&q=80'} alt="" srcSet="" />
-            <div className="sub-card-title">
-              <p className='uppercase overflow-wrap text-sm'>Title</p>
-              <span className='text-sm text-slate-700'>June 28, 2023</span>
-            </div>
-          </div>
-
-          <div className="sub-cards-col">
-            <img src={'https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1nfGVufDB8fDB8fHww&w=1000&q=80'} alt="" srcSet="" />
-            <div className="sub-card-title">
-              <p className='uppercase overflow-wrap text-sm'>We have launched Flowbite Blocks featuring over</p>
-              <span className='text-sm text-slate-700'>June 28, 2023</span>
-            </div>
-          </div>
-
-          <div className="sub-cards-col ">
-            <img src={'https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1nfGVufDB8fDB8fHww&w=1000&q=80'} alt="" srcSet="" />
-            <div className="sub-card-title ">
-              <p className='uppercase overflow-wrap text-sm'>We have launched Flowbite Blocks featuring over</p>
-              <span className='text-sm text-slate-700'>June 28, 2023</span>
-            </div>
-          </div>
-
-          <div className="sub-cards-col ">
-            <img src={'https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1nfGVufDB8fDB8fHww&w=1000&q=80'} alt="" srcSet="" />
-            <div className="sub-card-title ">
-              <p className='uppercase overflow-wrap text-sm'>We have launched Flowbite Blocks featuring over</p>
-              <span className='text-sm text-slate-700'>June 28, 2023</span>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </>
