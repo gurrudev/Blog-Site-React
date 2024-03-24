@@ -114,7 +114,7 @@ function UserProfile() {
                       </button>
                     </div>
                     {isOpen && (
-                      <div className="absolute right-0 lg:left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg">
+                      <div className="absolute z-10 right-0 lg:left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg">
                         <div className="py-1 form-text ">
                           <Link to={'/create-post'} className="flex items-center cursor-pointer px-4 py-2 text-gray-800 hover:bg-gray-100">
                             <IoCreate className='text-xl mr-2' />

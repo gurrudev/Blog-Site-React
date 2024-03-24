@@ -3,6 +3,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 25px;
   padding: 3rem 5rem;
+  z-index: 1;
 }
 
 .card {

@@ -42,15 +42,15 @@ function Cards({ cardsData, totalCards, cardAction }) {
                                         <div className='flex gap-1.5 items-start'>
                                             <div className='flex gap-1.5 items-start'>
                                                 {item.blog_tags && item.blog_tags.map((tag, index) => (
-                                                    <div key={index} className='bg-white bg-opacity-20 backdrop-blur-2xl rounded-sm p-1 shadow-lg'>
-                                                        <p className='pl-2 pr-2 text-xs form-text'>{tag}</p>
+                                                    <div key={index} className='bg-black bg-opacity-20 backdrop-blur-2xl rounded-sm p-1'>
+                                                        <p className='pl-2 pr-2 text-xs form-text drop-shadow-2xl text-white'>{tag}</p>
                                                     </div>
                                                 ))}
                                             </div>
 
                                         </div>
                                         <div className='flex items-start'>
-                                            <div className='bg-white bg-opacity-20 backdrop-blur-2xl rounded-full p-2 shadow-lg'>
+                                            <div className='bg-black bg-opacity-20 backdrop-blur-2xl rounded-full p-2 shadow-lg'>
                                                 <p className='text-base'><CiImageOn /></p>
                                             </div>
                                         </div>

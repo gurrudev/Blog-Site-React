@@ -30,7 +30,7 @@ const Home = () => {
             <Banner />
             <Cards cardsData={cardData} totalCards={8} cardAction={''}/>
             <Cover />
-            <FilterContainer />
+            <FilterContainer cardData={cardData}/>
         </div>
     )
 }
