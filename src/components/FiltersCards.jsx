@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import './FiltersCards.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import cardDate from '../utils/cardDate'
 import truncate from '../utils/Truncate'
 import strippedString from '../utils/strippedString'
 
 
 function FiltersCards({ cardData }) {
+
+  const navigate = useNavigate()
 
   console.log(cardData)
 
@@ -37,7 +39,7 @@ function FiltersCards({ cardData }) {
 
             <div className="sub-cards">
               {filteredData.map((item, index) =>(
-                <div className="sub-cards-col2" key={index}>
+                <div className="sub-cards-col2 cursor-pointer" onClick={()=>navigate(`/post/${item._id}`)} key={index}>
                 <img className='sub-cards-col2-img' src={item.image_url} alt="" srcSet="" />
                 <div className="sub-card-title">
                   <h3 className='uppercase overflow-wrap'>{item.title}</h3>
@@ -50,7 +52,7 @@ function FiltersCards({ cardData }) {
         </div>
         <div className="recent">
           {recentData.map((item, index)=>(
-          <div className="sub-cards-col" key={index}>
+          <div className="sub-cards-col cursor-pointer" onClick={()=>navigate(`/post/${item._id}`)} key={index}>
             <img src={item.image_url} alt="" srcSet="" />
             <div className="sub-card-title">
               <p className='uppercase overflow-wrap text-sm'>{item.title}</p>
