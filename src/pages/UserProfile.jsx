@@ -22,12 +22,16 @@ function UserProfile() {
 
   const navigate = useNavigate()
   const [user, setUserData] = useState({})
-  const [cardData, setCardData] = useState(null)
+  const [cardData, setCardData] = useState([])
 
   const token = localStorage.getItem('token')
   const dispatch = useDispatch()
 
-  // console.log(user)
+  // console.log(cardData)
+
+  const userBlogs = cardData.filter(data => data.user ===  user._id)
+
+
 
   if (user === undefined || user.message === 'Invalid token') {
     navigate('/')
@@ -182,7 +186,7 @@ function UserProfile() {
 
       </div>
 
-      <Cards cardsData={cardData} totalCards={8} cardAction={''} />
+      <Cards cardsData={userBlogs} totalCards={20} cardAction={''} isProfile/>
 
     </>
   )

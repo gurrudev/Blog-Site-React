@@ -10,13 +10,20 @@ function FiltersCards({ cardData }) {
 
   const navigate = useNavigate()
 
-  console.log(cardData)
-
   let filteredData = cardData.slice(1, 5)
 
-  console.log(filteredData)
+  
+  Array.prototype.rev = function(){
+    let rev = []
+    for(let i = this.length-1; i>0; i--){
+      rev.push(this[i])
+    }
+    return rev
+  }
+  
+  let recommended = cardData.slice(0, 6).rev()
+  // console.log(recommended)
 
-  let recentData = cardData.slice(0, 5)
 
   return (
     <>
@@ -51,7 +58,7 @@ function FiltersCards({ cardData }) {
           </div>
         </div>
         <div className="recent">
-          {recentData.map((item, index)=>(
+          {recommended.map((item, index)=>(
           <div className="sub-cards-col cursor-pointer" onClick={()=>navigate(`/post/${item._id}`)} key={index}>
             <img src={item.image_url} alt="" srcSet="" />
             <div className="sub-card-title">
