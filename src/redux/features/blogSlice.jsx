@@ -16,6 +16,16 @@ export const createBlog = createAsyncThunk('blogs/createBlog', async (data, { re
     }
 });
 
+export const deleteBlog = createAsyncThunk ('blogs/deleteBlog', async (id, { rejectWithValue }) =>{
+    try {
+        const response = await fetch(`https://social-media-api.cyclic.app/api/blogs/${id}`, {method:'DELETE'})
+
+        return response.json()
+    } catch (error) {
+        return rejectWithValue(error.message);
+    }
+})
+
 const blogsSlice = createSlice({
     name: 'blogs',
     initialState: {
@@ -39,6 +49,18 @@ const blogsSlice = createSlice({
                 state.isLoading = false;
                 state.error = action.payload;
             })
+            .addCase(deleteBlog.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(deleteBlog.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.blogs.push(action.payload);
+            })
+            .addCase(deleteBlog.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload;
+            })
+
     }
 })
 
