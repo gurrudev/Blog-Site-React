@@ -42,9 +42,6 @@ function UserProfile() {
     try {
       const userData = await endpointForUser(token);
       setUserData(userData.user)
-      if(userData){
-        setIsLoading(false)
-      }
     } catch (error) {
       // Handle errors
       console.error(error);
@@ -54,6 +51,7 @@ function UserProfile() {
   const BlogCardData = async () => {
     const data = await getBlogsData()
     setCardData(data.blogs_data)
+    if(data) return setIsLoading(false)
   }
 
   // console.log(user)

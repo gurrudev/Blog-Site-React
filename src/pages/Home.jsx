@@ -35,7 +35,7 @@ const Home = () => {
     return (
         <div className=''>
             <Banner />
-            <Cards cardsData={cardData} totalCards={cardData.length} isLoading={isLoading}/>
+            <Cards cardsData={cardData} totalCards={cardData.length || 8 } isLoading={isLoading}/>
             {isLoading?
                <CoverSkeleton/> :<Cover /> 
             }
