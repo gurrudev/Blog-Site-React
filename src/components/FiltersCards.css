@@ -93,9 +93,9 @@
 }
 
 
-.sub-cards-col2 img {
-  width: 200px;
-  height: 120px;
+.sub-cards-col2-img {
+  width: 200px !important; 
+  height: 120px !important;
 }
 
 .sub-card-title p {

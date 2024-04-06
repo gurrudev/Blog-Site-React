@@ -19,7 +19,7 @@ const Home = () => {
     useEffect(()=>{
         const timer = setTimeout(() => {
             if(cardData) return setIsLoading(false);
-        }, 3000);
+        }, 2000);
         return () => clearTimeout(timer);
     })
 

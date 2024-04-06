@@ -53,27 +53,33 @@ export const WriteBlog = () => {
   }
 
   // console.log(selectedTags)
+  
+  // title, description, image_url, blog_tags, user
+  const data = {
+    title: blogData.title,
+    description: editorValue,
+    image_url: blogData.image_url,
+    blog_tags: selectedTags,
+    user: user._id,
+    username: user.name
+  }
 
-  const handleBlogSubmit = async () => {
+  const handleBlogSubmit = async() => {
     try {
-      // title, description, image_url, blog_tags, user
-      const data = {
-        title: blogData.title,
-        description: editorValue,
-        image_url: blogData.image_url,
-        blog_tags: selectedTags,
-        user: user._id,
-        username: user.name
-      }
       //  await postCreateBlog(blogData.title, editorValue, blogData.image_url, selectedTags, user._id)
       const response = await dispatch(createBlog(data))
-      // console.log(response.payload.message._message)
 
-      // if (response.payload.message._message === 'Blog validation failed') {
-      //   toast.error('Please fill all the fields')
-      // }if(response.payload.message === undefined) {
-      //   toast.success('Your blog has been created :)')
-      // }
+      console.log(response)
+
+      if(response.meta.requestStatus === "fulfilled") {
+        toast.success('Your blog has been created :)')
+      }
+
+      if(response.meta.requestStatus === "rejected") {
+        toast.error('Opps, somthing went wrong, try later :/')
+      }
+
+      // setBlogData('')
     } catch (error) {
       console.log(error)
     }
