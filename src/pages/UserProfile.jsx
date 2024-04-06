@@ -22,12 +22,16 @@ function UserProfile() {
 
   const navigate = useNavigate()
   const [user, setUserData] = useState({})
-  const [cardData, setCardData] = useState(null)
+  const [cardData, setCardData] = useState([])
 
   const token = localStorage.getItem('token')
   const dispatch = useDispatch()
 
-  // console.log(user)
+  // console.log(cardData)
+
+  const userBlogs = cardData.filter(data => data.user ===  user._id)
+
+
 
   if (user === undefined || user.message === 'Invalid token') {
     navigate('/')
@@ -114,6 +118,7 @@ function UserProfile() {
                       </button>
                     </div>
                     {isOpen && (
+
                       <div className="absolute z-10 right-0 lg:left-0 mt-2 w-52 bg-white border border-gray-200 rounded-lg shadow-lg">
                         <div className="py-1 form-text ">
                           <Link to={'/create-post'} className="flex items-center cursor-pointer px-4 py-2 text-gray-800 hover:bg-gray-100">
@@ -182,7 +187,9 @@ function UserProfile() {
 
       </div>
 
+
       <Cards cardsData={userBlogs} totalCards={userBlogs.length} cardAction={''} isProfile/>
+
 
     </>
   )

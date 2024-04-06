@@ -17,12 +17,28 @@ const Signup = () => {
         // console.log(users)
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+
         if (users.password === users.confpassword) {
-            console.log(users)
-            dispatch(addUser(users))
-            navigate('/login')
+            try {
+                console.log(users)
+                let resp = await dispatch(addUser(users))
+                
+            
+                if(resp?.payload?.message === 'User already exists!'){
+                    toast.error('User already exists!')
+                   
+                }else{ 
+                    // toast.success('Signup Successful!')
+                    navigate('/login')
+                }
+
+            } catch (error) {
+                console.log(error)
+            }
         } else {
+
             toast.error('Invalid Password, Try Again!')
         }
     }
@@ -49,7 +65,7 @@ const Signup = () => {
                             <h1 className="text-xl font-bold form-heading leading-tight tracking-tight text-gray-900 md:text-2xl ">
                                 Signup for new account
                             </h1>
-                            <div className="space-y-4 md:space-y-6 form-text" >
+                            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6 form-text" >
                                 <div>
                                     <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 ">Your Name</label>
                                     <input type="name" name="name" id="name" onChange={getUsersData} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-sm focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Jon Doe" required="" />
@@ -67,11 +83,11 @@ const Signup = () => {
                                     <input type="password" name="confpassword" id="confpassword" onChange={getUsersData} placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-sm focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 " required="" />
                                 </div>
 
-                                <button type="submit" onClick={handleSubmit} className="w-full text-white bg-[black] hover:bg-[#36363b] focus:outline-none  font-medium rounded-sm text-lg px-5 py-2.5 text-center ">Sign up</button>
+                                <button type="submit" className="w-full text-white bg-[black] hover:bg-[#36363b] focus:outline-none  font-medium rounded-sm text-lg px-5 py-2.5 text-center ">Sign up</button>
                                 <p className="text-sm font-light text-gray-500 ">
                                     Already have an account? <Link to={'/login'}><span className="font-medium text-primary-600 hover:underline ">Sign in</span></Link>
                                 </p>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

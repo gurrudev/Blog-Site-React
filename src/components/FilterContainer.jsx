@@ -19,6 +19,7 @@ function FilterContainer({ cardData }) {
       {isLoading ? <FilterCardsSkeleton />
         : <FilterCards cardData={cardData} />
       }
+
     </>
   )
 }

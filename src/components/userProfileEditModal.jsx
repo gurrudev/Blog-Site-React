@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const userProfileEditModal = ({ closeModal }) => {
 
     return (
-        <div className="fixed z-10 inset-0 overflow-y-auto flex items-center justify-center">
+        <div className="fixed inset-0 overflow-y-auto flex items-center justify-center">
             <div className="bg-white p-8 rounded shadow-lg w-64">
                 <div className="text-center mb-4">
                     <h4 className="text-lg font-semibold">Options</h4>
