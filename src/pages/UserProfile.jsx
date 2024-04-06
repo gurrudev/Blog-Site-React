@@ -21,6 +21,7 @@ import RandomColor from '../utils/RandomColor';
 function UserProfile() {
 
   const navigate = useNavigate()
+  const [isLoading, setIsLoading] = useState(true)
   const [user, setUserData] = useState({})
   const [cardData, setCardData] = useState([])
 
@@ -41,12 +42,14 @@ function UserProfile() {
     try {
       const userData = await endpointForUser(token);
       setUserData(userData.user)
+      if(userData){
+        setIsLoading(false)
+      }
     } catch (error) {
       // Handle errors
       console.error(error);
     }
   };
-
 
   const BlogCardData = async () => {
     const data = await getBlogsData()
@@ -188,7 +191,7 @@ function UserProfile() {
       </div>
 
 
-      <Cards cardsData={userBlogs} totalCards={userBlogs.length} cardAction={''} isProfile/>
+      <Cards cardsData={userBlogs} totalCards={userBlogs.length} isLoading={isLoading} cardAction={''} isProfile/>
 
 
     </>

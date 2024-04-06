@@ -3,22 +3,28 @@ import FiltersTab from './FiltersTab'
 import FilterCards from './FiltersCards'
 import FilterCardsSkeleton from './Skeleton/FilterCardsSkeleton'
 
-function FilterContainer({ cardData }) {
-  const [isLoading, setIsLoading] = useState(true)
+function FilterContainer({ cardData, isLoading }) {
+  // const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (cardData) return setIsLoading(false)
-    }, 3000)
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     if (cardData) return setIsLoading(false)
+  //   }, 3000)
 
-    return () => clearTimeout(timer)
-  }, [])
+  //   return () => clearTimeout(timer)
+  // }, [])
+
   return (
     <>
-      {/* <FiltersTab/> */}
+      {/* <FiltersTab/>
       {isLoading ? <FilterCardsSkeleton />
         : <FilterCards cardData={cardData} />
-      }
+      } */}
+
+      {isLoading 
+        ?<FilterCardsSkeleton/>
+        : <FilterCards cardData={cardData} />
+    }
 
     </>
   )

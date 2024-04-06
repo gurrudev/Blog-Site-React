@@ -53,12 +53,11 @@ const FilterCardsSkeleton = () => {
                 <div className="recent">
                     {Array(5).fill(0).map((item, index) => (
                         <div className="sub-cards-col " key={index}>
-                            <div class="flex items-center justify-center bg-gray-200 rounded w-40 h-20"/>
-                            <div class="w-full">
-                                <div class="h-2 bg-gray-200 rounded-full max-w-[480px] mb-2.5"></div>
-                                <div class="h-2 bg-gray-200 rounded-full max-w-[480px] mb-2.5"></div>
-                                <div class="h-2.5 bg-gray-200 rounded-full w-48 mb-4"></div>
-                                
+                            <div class="flex items-center justify-center bg-gray-200 rounded w-28 h-20"/>
+                            <div class="">
+                                <div class="h-2.5 bg-gray-200 rounded-full w-32 lg:w-64 md:w-64 mb-4"></div>
+                                <div class="h-2.5 bg-gray-200 rounded-full w-32 lg:w-64 mb-4"></div>
+                                <div class="h-2.5 bg-gray-200 rounded-full w-28 mb-4"></div>
                             </div>
                             <span class="sr-only">Loading...</span>
                         </div>

@@ -13,18 +13,9 @@ import { CiImageOn } from "react-icons/ci";
 import { useDispatch } from 'react-redux';
 import { deleteBlog } from '../redux/features/blogSlice';
 
-function Cards({ cardsData, totalCards, isProfile }) {
-    const [isLoading, setIsLoading] = useState(true);
+function Cards({ cardsData, totalCards, isProfile, isLoading }) {
     const { animate } = useAutoAnimate();
     const dispatch = useDispatch()
-    
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            if(cardsData) return setIsLoading(false);
-        }, 2000);
-        return () => clearTimeout(timer);
-    }, []);
-
     const [isOpen, setIsOpen] = useState({});
 
     const toggleMenu = (cardIndex) => {

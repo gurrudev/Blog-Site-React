@@ -19,7 +19,7 @@ const Home = () => {
     useEffect(()=>{
         const timer = setTimeout(() => {
             if(cardData) return setIsLoading(false);
-        }, 3000);
+        }, 2000);
         return () => clearTimeout(timer);
     })
 
@@ -35,11 +35,11 @@ const Home = () => {
     return (
         <div className=''>
             <Banner />
-            <Cards cardsData={cardData} totalCards={cardData.length} cardAction={''}/>
+            <Cards cardsData={cardData} totalCards={cardData.length} isLoading={isLoading}/>
             {isLoading?
                <CoverSkeleton/> :<Cover /> 
             }
-            <FilterContainer cardData={cardData}/>
+            <FilterContainer cardData={cardData} isLoading={isLoading}/>
         </div>
     )
 }
