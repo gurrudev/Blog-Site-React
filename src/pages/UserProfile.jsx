@@ -189,7 +189,7 @@ function UserProfile() {
       </div>
 
 
-      <Cards cardsData={userBlogs} totalCards={userBlogs.length} isLoading={isLoading} cardAction={''} isProfile/>
+      <Cards cardsData={userBlogs} totalCards={userBlogs.length || 4} isLoading={isLoading} cardAction={''} isProfile/>
 
 
     </>
