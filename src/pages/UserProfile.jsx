@@ -109,7 +109,7 @@ function UserProfile() {
 
               {/* User Info */}
               <div className="ml-2 lg:ml-14 md:ml-8 mt-2 lg:mt-4 md:mt-4">
-                <div className='flex justify-between gap-48'>
+                <div className='flex justify-between gap-5'>
                   <h1 className="text-3xl form-heading font-bold text-gray-800">{user.name}</h1>
                   <div className="relative inline-block text-left">
                     <div>
@@ -118,7 +118,8 @@ function UserProfile() {
                       </button>
                     </div>
                     {isOpen && (
-                      <div className="absolute z-10 right-0 lg:left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg">
+
+                      <div className="absolute z-10 right-0 lg:left-0 mt-2 w-52 bg-white border border-gray-200 rounded-lg shadow-lg">
                         <div className="py-1 form-text ">
                           <Link to={'/create-post'} className="flex items-center cursor-pointer px-4 py-2 text-gray-800 hover:bg-gray-100">
                             <IoCreate className='text-xl mr-2' />
@@ -186,7 +187,9 @@ function UserProfile() {
 
       </div>
 
-      <Cards cardsData={userBlogs} totalCards={20} cardAction={''} isProfile/>
+
+      <Cards cardsData={userBlogs} totalCards={userBlogs.length} cardAction={''} isProfile/>
+
 
     </>
   )

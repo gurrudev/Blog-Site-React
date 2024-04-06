@@ -17,10 +17,10 @@ function Cards({ cardsData, totalCards, isProfile }) {
     const [isLoading, setIsLoading] = useState(true);
     const { animate } = useAutoAnimate();
     const dispatch = useDispatch()
-
+    
     useEffect(() => {
         const timer = setTimeout(() => {
-            setIsLoading(false);
+            if(cardsData) return setIsLoading(false);
         }, 2000);
         return () => clearTimeout(timer);
     }, []);
