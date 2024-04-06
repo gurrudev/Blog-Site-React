@@ -4,7 +4,7 @@ import './FiltersCards.css'
 
 function FiltersCards() {
   return (
-    <>
+    <div>
       <h1 className='p-8 pb-0 pt-0 sm:p-20 sm:pt-0 sm:pb-10 text-2xl form-heading'>"Recomended"</h1>
       <div className="filter-container p-8  sm:p-20 sm:pt-0 sm:pb-10">
 
@@ -99,7 +99,7 @@ function FiltersCards() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

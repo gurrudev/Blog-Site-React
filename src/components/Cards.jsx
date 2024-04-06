@@ -12,6 +12,12 @@ function Cards({ cardsData, totalCards, cardAction }) {
 
     const [isLoading, setIsLoading] = useState(true)
     const { animate } = useAutoAnimate()
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if(cardsData) return setIsLoading(false);
+        }, 2000);
+        return () => clearTimeout(timer);
+    }, []);
 
     const dataFn = () => {
         setIsLoading(false)
