@@ -4,12 +4,18 @@ import endpointForUser from '../utils/endpointForUser'
 import { FaUserCircle } from "react-icons/fa";
 import { } from "react-icons/md";
 import ReactQuill from 'react-quill';
+import { useDispatch } from 'react-redux';
+import { userUpdate } from '../redux/features/userSlice';
+import { Toaster, toast } from 'react-hot-toast';
 
 const EditProfile = () => {
 
     const [user, setUserData] = useState({})
     const [profileData, setProfileData] = useState({})
     const [editorValue, setEditorValue] = useState(null)
+    const [skills, setSkills] = useState('')
+
+    const dispatch = useDispatch()
 
     const navigate = useNavigate()
 
@@ -22,9 +28,36 @@ const EditProfile = () => {
     }
 
     // console.log(user)
-
     const getProfileData = (e) => {
         setProfileData({ ...profileData, [e.target.name]: e.target.value })
+    }
+
+    const data = {
+        name: profileData.name,
+        user_title: profileData.user_title,
+        profile_pic: profileData.profile_pic,
+        skills: skills.trim().split(', '),
+        location: profileData.location,
+        bio: editorValue 
+    }
+
+
+    const updateUserData = async () => {
+        try{
+            const response = await dispatch(userUpdate({id: user._id, data: data}))
+
+            console.log(response.meta.requestStatus)
+            if(response.meta.requestStatus === 'fulfilled'){
+                toast.success('Profile Updated Successfully')
+                setTimeout(()=>{
+                    navigate('/profile')
+                }, 3000) 
+            }else{
+                toast.error('Somthing went wrong')
+            }
+        }catch(e){
+            console.log(e)
+        }
     }
 
     const getUserData = async () => {
@@ -68,6 +101,7 @@ const EditProfile = () => {
 
     return (
         <>
+        <Toaster/>
             <div className='p-8 pt-4 lg:p-52 lg:pt-4 md:p-20 md:pt-4'>
                 <div>
                     <div className="space-y-12">
@@ -86,12 +120,12 @@ const EditProfile = () => {
 
                         <div className="mb-6">
                             <label htmlFor="skills" className='text-gray-800 form-text font-semibold'>Name</label>
-                            <input type="text" id="name" name='name' className="text-gray-900 border border-gray-300 text-base form-text py-1.5 px-3 mt-1 rounded-sm  outline-none block w-full" placeholder="Jon Doe" required autoFocus />
+                            <input type="text" id="name" name='name' onChange={getProfileData} className="text-gray-900 border border-gray-300 text-base form-text py-1.5 px-3 mt-1 rounded-sm  outline-none block w-full" placeholder="Jon Doe" required autoFocus />
                         </div>
 
                         <div className="mb-6">
                             <label htmlFor="skills" className='text-gray-800 form-text font-semibold'>User Title</label>
-                            <input type="text" id="user_title" name='user_title' className="text-gray-900 form-text border border-gray-300 text-base form-text py-1.5 px-3 mt-1 rounded-sm outline-none block w-full" placeholder="Writer" required />
+                            <input type="text" id="user_title" name='user_title' onChange={getProfileData} className="text-gray-900 form-text border border-gray-300 text-base form-text py-1.5 px-3 mt-1 rounded-sm outline-none block w-full" placeholder="Writer" required />
                         </div>
 
                         <div className="mb-6">
@@ -106,9 +140,13 @@ const EditProfile = () => {
 
                         <div className="mb-6">
                             <label htmlFor="skills" className='text-gray-800 form-text font-semibold'>Skills</label>
-                            <input type="text" id="skills" name='skills' className="text-gray-900 border border-gray-300 text-base form-text py-1.5 px-3 mt-1 rounded-sm outline-none block w-full" placeholder="Writing, Java," required />
+                            <input type="text" id="skills" name='skills' value={skills} onChange={(e) => setSkills(e.target.value)} className="text-gray-900 border border-gray-300 text-base form-text py-1.5 px-3 mt-1 rounded-sm outline-none block w-full" placeholder="Writing, Java," required />
                         </div>
 
+                        <div className="mb-6">
+                            <label htmlFor="skills" className='text-gray-800 form-text font-semibold'>Location</label>
+                            <input type="text" id="location" name='location' onChange={getProfileData} className="text-gray-900 form-text border border-gray-300 text-base form-text py-1.5 px-3 mt-1 rounded-sm outline-none block w-full" placeholder="Your Location" />
+                        </div>
                         <div className="mb-6">
                             <label htmlFor="skills" className='text-gray-800 form-text font-semibold'>About</label>
                             <div className="editor-container mt-1" ref={editorRef}>
@@ -122,12 +160,14 @@ const EditProfile = () => {
                             </div>
                         </div>
                         <div className='mb-6'>
-                            <div className='border-b border-gray-300'></div>
+                            <div className='border-b border-gray-300' />
+                            <div className='form-text' dangerouslySetInnerHTML={{ __html: editorValue }} />
+                            <div className='border-b border-gray-300' />
                         </div>
 
                         <div className="mb-6 flex items-center justify-end gap-2">
-                            <button type='button' onClick={()=>navigate('/profile')} className='form-text border-red-900 border-2 text-red-900 py-1 px-3 rounded-sm'>Cancle</button>
-                            <button type="button" onClick={()=> alert('hell')} className="bg-gray-900 border-2 border-gray-900 text-white form-text py-1 px-3 rounded-sm">Save</button>
+                            <button type='button' onClick={() => navigate('/profile')} className='form-text border-red-900 border-2 text-red-900 py-1 px-3 rounded-sm'>Cancle</button>
+                            <button type="button" onClick={updateUserData} className="bg-gray-900 border-2 border-gray-900 text-white form-text py-1 px-3 rounded-sm">Save</button>
                         </div>
                     </div>
                 </div>

@@ -6,18 +6,21 @@ import { MdDateRange } from "react-icons/md";
 import Footer from '../components/Footer'
 import getBlogById from '../utils/getBlogById';
 import cardDate from '../utils/cardDate';
+import BlogPostSkeleton from '../components/Skeleton/BlogPostSkeleton';
 
 const BlogPost = () => {
 
     const navigate = useNavigate()
     const { id } = useParams();
     const [post, setPost] = useState({});
-    
+    const [isLoading, setIsLoading] = useState(true)
+
     useEffect(() => {
         const fetchBlog = async () => {
             try {
                 const response = await getBlogById(id);
-                setPost(response.blog); 
+                setPost(response.blog);
+                if(response) return setIsLoading(false)
             } catch (error) {
                 console.error(error);
             }
@@ -31,9 +34,8 @@ const BlogPost = () => {
     // console.log(post)
 
     return (
-        <>
-            <main className="pb-4">
-
+        <>  {isLoading ? <BlogPostSkeleton />
+            : <main className="pb-4">
                 <div className="relative overflow-hidden">
                     <div className="w-full h-80">
                         <img className="w-full h-full object-cover" src={post.image_url} alt="" />
@@ -73,7 +75,7 @@ const BlogPost = () => {
                     </article>
                 </div>
             </main>
-            
+        }
         </>
     )
 }

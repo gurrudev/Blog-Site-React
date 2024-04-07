@@ -2,7 +2,7 @@ import axios from "axios"
 
 export const getBlogsData = async() =>{
     try {
-        let get_blogs = await axios.get('https://social-media-api.cyclic.app/api/blogs')
+        let get_blogs = await axios.get(`${import.meta.env.VITE_BACKEND_API}/api/blogs`)
         return get_blogs.data;
     } catch (err) {
         console.log(err);
@@ -11,7 +11,7 @@ export const getBlogsData = async() =>{
 
 export const getUsersData = async () =>{
     try{
-        let get_users = await axios.get('https://social-media-api.cyclic.app/api/users')
+        let get_users = await axios.get(`${import.meta.env.VITE_BACKEND_API}/api/users`)
         return get_users.data;
     } catch (err) {
         console.log(err);
@@ -21,7 +21,7 @@ export const getUsersData = async () =>{
 export const loginUser = async(params) =>{
 
     try {
-        let login = await axios.post('https://social-media-api.cyclic.app/api/users/login',params)
+        let login = await axios.post(`${import.meta.env.VITE_BACKEND_API}/api/users/login`,params)
       
         return login
    

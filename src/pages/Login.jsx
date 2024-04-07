@@ -7,8 +7,6 @@ import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
 
-
-
     const navigate = useNavigate()
 
     const [user, setUsers] = useState({})
@@ -24,8 +22,8 @@ const Login = () => {
         try {
             let data = await dispatch(userLogin(user))
             if (data.payload.massage === 'login successfull!') {
-                // console.log(data.payload.massage)
-                navigate('/')
+                toast.success("Login successfull!")
+                setTimeout(()=>{navigate('/')}, 2000)
             }
             if (data.payload.message === 'Invalid password') {
                 toast.error("Password is incorrect!")

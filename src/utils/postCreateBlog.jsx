@@ -1,6 +1,6 @@
 const postCreateBlog = async (title, description, image_url, blog_tags, user) => {
     try {
-        const response = await fetch("https://social-media-api.cyclic.app/api/blogs/add", {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_API}/api/blogs/add`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

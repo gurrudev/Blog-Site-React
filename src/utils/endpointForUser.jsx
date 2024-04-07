@@ -1,7 +1,7 @@
 const endpointForUser = async (token) => {
     try {
       const response = await fetch(
-        "https://social-media-api.cyclic.app/api/users/user-data",
+        `${import.meta.env.VITE_BACKEND_API}/api/users/user-data`,
         {
           method: "GET",
           headers: {

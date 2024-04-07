@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const addUser = createAsyncThunk('userDetails/addUser', async (data, { rejectWithValue }) => {
     try {
-        const response = await axios.post('https://social-media-api.cyclic.app/api/users/signup', data);
+        const response = await axios.post(`${import.meta.env.VITE_BACKEND_API}/api/users/signup`, data);
         const result = await response.data;
         return result;
     } catch (error) {
@@ -14,7 +14,7 @@ export const addUser = createAsyncThunk('userDetails/addUser', async (data, { re
 
 export const userLogin = createAsyncThunk('userDetails/userLogin', async (credentials, { rejectWithValue }) => {
     try {
-        const response = await fetch('https://social-media-api.cyclic.app/api/users/login', {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_API}/api/users/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -37,6 +37,24 @@ export const userLogin = createAsyncThunk('userDetails/userLogin', async (creden
         return rejectWithValue(error.message);
     }
 });
+
+export const userUpdate = createAsyncThunk('userDetails/update', async({id,data},  {rejectWithValue})=>{
+    try {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_API}/api/users/update/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        return result;
+    } catch (error) {
+        return rejectWithValue(error.message)
+    }
+})
 
 
 export const logout = createAction('userDetails/logout');
@@ -74,6 +92,17 @@ const userDetailsSlice = createSlice({
             .addCase(userLogin.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload; 
+            })
+            .addCase(userUpdate.pending, (state) => {
+                state.isLoading = true
+            })
+            .addCase(userUpdate.fulfilled, (state, action) => {
+                state.isLoading = false
+                state.users.push(action.payload)
+            })
+            .addCase(userUpdate.rejected, (state, action) => {
+                state.isLoading = false
+                state.error = action.payload
             })
             // Handling logout action
             .addCase(logout, (state) => {

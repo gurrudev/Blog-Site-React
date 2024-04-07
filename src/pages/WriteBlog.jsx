@@ -69,7 +69,7 @@ export const WriteBlog = () => {
       //  await postCreateBlog(blogData.title, editorValue, blogData.image_url, selectedTags, user._id)
       const response = await dispatch(createBlog(data))
 
-      console.log(response)
+      // console.log(response)
 
       if(response.meta.requestStatus === "fulfilled") {
         toast.success('Your blog has been created :)')

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const createBlog = createAsyncThunk('blogs/createBlog', async (data, { rejectWithValue }) => {
     try {
-        const response = await fetch("https://social-media-api.cyclic.app/api/blogs/add", {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_API}/api/blogs/add`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -18,7 +18,7 @@ export const createBlog = createAsyncThunk('blogs/createBlog', async (data, { re
 
 export const deleteBlog = createAsyncThunk ('blogs/deleteBlog', async (id, { rejectWithValue }) =>{
     try {
-        const response = await fetch(`https://social-media-api.cyclic.app/api/blogs/${id}`, {method:'DELETE'})
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_API}/api/blogs/${id}`, {method:'DELETE'})
 
         return response.json()
     } catch (error) {
