@@ -33,7 +33,7 @@ const EditProfile = () => {
     }
 
     const data = {
-        name: profileData.name,
+        // name: profileData.name,
         user_title: profileData.user_title,
         profile_pic: profileData.profile_pic,
         skills: skills.trim().split(', '),
@@ -118,10 +118,10 @@ const EditProfile = () => {
 
                     <div className='pt-10'>
 
-                        <div className="mb-6">
+                        {/* <div className="mb-6">
                             <label htmlFor="skills" className='text-gray-800 form-text font-semibold'>Name</label>
                             <input type="text" id="name" name='name' onChange={getProfileData} className="text-gray-900 border border-gray-300 text-base form-text py-1.5 px-3 mt-1 rounded-sm  outline-none block w-full" placeholder="Jon Doe" required autoFocus />
-                        </div>
+                        </div> */}
 
                         <div className="mb-6">
                             <label htmlFor="skills" className='text-gray-800 form-text font-semibold'>User Title</label>
