@@ -33,8 +33,10 @@ Welcome to BlogHub, your go-to platform for unleashing your creativity through t
 
 <h4 align="">Screenshot:</h4>
 
-![Screenshot 2023-08-23 170150](https://github.com/gurrudev/HopeHarbor/assets/80522156/7bd52ea1-ed6a-4109-86ec-30a1f24c5fc0) | ![Screenshot 2023-08-23 161604](https://github.com/gurrudev/HopeHarbor/assets/80522156/ae98695d-4325-4a39-a510-fb8227f7bf89) |
-| :---: | :---: | 
+![1](https://github.com/gurrudev/Blog-Hub/assets/80522156/dd4e8b63-16f8-4b97-9b4f-a17595961017) | ![2](https://github.com/gurrudev/Blog-Hub/assets/80522156/22eb1ee6-5c95-41b4-b587-5b5cde9e7cbd) |
+| :---: | :---: |
+
+
 
 <h3 align=""><a href="https://bloghubsite.netlify.app/"><strong>Want to see live preview »</strong></a></h3>
 
