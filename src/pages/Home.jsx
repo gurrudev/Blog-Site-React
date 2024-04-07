@@ -3,43 +3,38 @@ import Banner from '../components/Banner'
 import Cards from '../components/Cards'
 import FilterContainer from '../components/FilterContainer'
 import Cover from '../components/Cover'
-import {getBlogsData} from '../../api/apiCalls'
+import { getBlogsData } from '../../api/apiCalls'
 import { useDispatch } from 'react-redux'
 import CoverSkeleton from '../components/Skeleton/CoverSkeleton'
+import HomeCardSkeleton from '../components/Skeleton/FilterCardsSkeleton'
 
 const Home = () => {
 
     const [cardData, setCardData] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
 
     const token = localStorage.getItem('token');
 
     const dispatch = useDispatch()
 
-    useEffect(()=>{
-        const timer = setTimeout(() => {
-            if(cardData) return setIsLoading(false);
-        }, 2000);
-        return () => clearTimeout(timer);
-    })
-
-    const BlogCardData = async() => {
+    const BlogCardData = async () => {
         const data = await getBlogsData()
-        setCardData(data.blogs_data)
+        setCardData(data?.blogs_data)
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         BlogCardData()
-    },[])
+    }, [])
 
     return (
         <div className=''>
             <Banner />
-            <Cards cardsData={cardData} totalCards={cardData.length} cardAction={''}/>
-            {isLoading?
-               <CoverSkeleton/> :<Cover /> 
+            <Cards cardsData={cardData} totalCards={cardData.length || 8} isLoading={(cardData.length === 0) ? true : false} />
+            {(cardData.length === 0) ?
+                <CoverSkeleton /> : <Cover />
             }
-            <FilterContainer cardData={cardData}/>
+            {(cardData.length === 0) ?
+                <HomeCardSkeleton /> : <FilterContainer cardData={cardData} />
+            }
         </div>
     )
 }

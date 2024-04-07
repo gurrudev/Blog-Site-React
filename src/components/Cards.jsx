@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 import './Cards.css';
-import HomeCardSekeleton from './Skeleton/HomeCardSekeleton';
+import HomeCardSkeleton from './Skeleton/HomeCardSkeleton';
 import truncate from '../utils/Truncate';
 import cardDate from '../utils/cardDate';
 import strippedString from '../utils/strippedString';
@@ -13,18 +13,8 @@ import { CiImageOn } from "react-icons/ci";
 import { useDispatch } from 'react-redux';
 import { deleteBlog } from '../redux/features/blogSlice';
 
-function Cards({ cardsData, totalCards, isProfile }) {
-    const [isLoading, setIsLoading] = useState(true);
-    const { animate } = useAutoAnimate();
+function Cards({ cardsData, totalCards, isProfile, isLoading }) {
     const dispatch = useDispatch()
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            if(cardsData) return setIsLoading(false);
-        }, 2000);
-        return () => clearTimeout(timer);
-    }, []);
-
     const [isOpen, setIsOpen] = useState({});
 
     const toggleMenu = (cardIndex) => {
@@ -46,12 +36,12 @@ function Cards({ cardsData, totalCards, isProfile }) {
 
     return (
         <>
-            <main ref={animate}>
+            <div className='animate-pluse' >
                 <div className="card-container p-8 sm:p-20 sm:pt-10">
                     {isLoading ? (
                         Array(totalCards)
                             .fill(0)
-                            .map((_, i) => <HomeCardSekeleton key={i} />)
+                            .map((_, i) => <HomeCardSkeleton key={i} />)
                     ) : (
                         cardsData
                             ?.filter((_, index) => index < totalCards)
@@ -132,7 +122,7 @@ function Cards({ cardsData, totalCards, isProfile }) {
                             ))
                     )}
                 </div>
-            </main>
+            </div>
         </>
     );
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const HomeCardSekeleton = () => {
+const HomeCardSkeleton = () => {
     return (
 
         <div role="status" className="max-w-sm animate-pulse md:p-6 ">
@@ -26,4 +26,4 @@ const HomeCardSekeleton = () => {
     )
 }
 
-export default HomeCardSekeleton
+export default HomeCardSkeleton
