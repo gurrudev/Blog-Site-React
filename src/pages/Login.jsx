@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 import bgImg from '../assets/img/cover.jpeg'
 import { Link, useNavigate } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch} from 'react-redux'
 import { userLogin } from '../redux/features/userSlice'
 import toast, { Toaster } from 'react-hot-toast';
+import Helmet from 'react-helmet'
 
 const Login = () => {
 
@@ -21,8 +22,8 @@ const Login = () => {
     const handleSubmit = async () => {
         try {
             let data = await dispatch(userLogin(user))
-            if (data.payload.massage === 'login successfull!') {
-                toast.success("Login successfull!")
+            if (data.payload.massage === 'login successful!') {
+                toast.success("Login successful!")
                 setTimeout(()=>{navigate('/')}, 2000)
             }
             if (data.payload.message === 'Invalid password') {
@@ -38,6 +39,10 @@ const Login = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Login | BlogHub </title>
+            </Helmet>
+
             <Toaster
                 position="top-right"
                 reverseOrder={false}

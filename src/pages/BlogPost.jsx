@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import pic from '../assets/img/banner.jpg'
+import { useState, useEffect } from 'react'
+// import pic from '../assets/img/banner.jpg'
 import { FaArrowLeft } from "react-icons/fa6";
 import { useNavigate, useParams } from 'react-router-dom';
 import { MdDateRange } from "react-icons/md";
-import Footer from '../components/Footer'
+// import Footer from '../components/Footer'
 import getBlogById from '../utils/getBlogById';
 import cardDate from '../utils/cardDate';
 import BlogPostSkeleton from '../components/Skeleton/BlogPostSkeleton';
+import { Helmet } from 'react-helmet';
 
 const BlogPost = () => {
 
@@ -34,7 +35,11 @@ const BlogPost = () => {
     // console.log(post)
 
     return (
-        <>  {isLoading ? <BlogPostSkeleton />
+        <>  
+        <Helmet>
+            <title>{post.title}</title>
+        </Helmet>
+        {isLoading ? <BlogPostSkeleton />
             : <main className="pb-4">
                 <div className="relative overflow-hidden">
                     <div className="w-full h-80">

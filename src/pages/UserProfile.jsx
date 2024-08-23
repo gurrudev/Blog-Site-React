@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import _avatar from '../assets/img/img_avatar.png'
+import { useState, useEffect } from 'react'
+// import _avatar from '../assets/img/img_avatar.png'
 import { FaArrowLeft } from "react-icons/fa6";
 import { Link, useNavigate } from 'react-router-dom';
 import { MdDateRange } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import Cards from '../components/Cards';
 import { getBlogsData } from '../../api/apiCalls'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import joinedDate from '../utils/joinedDate'
 import endpointForUser from '../utils/endpointForUser';
 import { BsThreeDots } from "react-icons/bs";
@@ -18,6 +18,7 @@ import { logout } from '../redux/features/userSlice';
 import { IoCreate } from "react-icons/io5";
 import RandomColor from '../utils/RandomColor';
 import UserProfileSkeleton from '../components/Skeleton/UserProfileSkeleton';
+import { Helmet } from 'react-helmet';
 
 function UserProfile() {
 
@@ -79,6 +80,9 @@ function UserProfile() {
 
   return (
     <>
+    <Helmet>
+      <title>{!user ? "Profile | BlogHub": `${user?.name} | BlogHub` }</title>
+    </Helmet>
       {isLoading ? <UserProfileSkeleton />
         : <div className="bg-gray-100">
           <div className="relative">

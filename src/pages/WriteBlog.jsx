@@ -1,15 +1,16 @@
-import React, { useState, useRef, useEffect } from 'react'
-import _avatar from '../assets/img/img_avatar.png'
+import { useState, useRef, useEffect } from 'react'
+// import _avatar from '../assets/img/img_avatar.png'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { FaImage } from "react-icons/fa6";
 import { FaHashtag } from "react-icons/fa";
-import { Link, useNavigate } from 'react-router-dom';
-import postCreateBlog from '../utils/postCreateBlog';
+import { Link} from 'react-router-dom';
+// import postCreateBlog from '../utils/postCreateBlog';
 import { useDispatch } from 'react-redux';
-import blogsSlice, { createBlog } from '../redux/features/blogSlice';
+import { createBlog } from '../redux/features/blogSlice';
 import endpointForUser from '../utils/endpointForUser'
 import toast, { Toaster } from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 export const WriteBlog = () => {
   const [blogData, setBlogData] = useState({})
@@ -76,7 +77,7 @@ export const WriteBlog = () => {
       }
 
       if(response.meta.requestStatus === "rejected") {
-        toast.error('Opps, somthing went wrong, try later :/')
+        toast.error('Oops, something went wrong, try later :/')
       }
 
       // setBlogData('')
@@ -126,6 +127,9 @@ export const WriteBlog = () => {
 
   return (
     <>
+    <Helmet>
+      <title>Create Post | BlogHub</title>
+    </Helmet>
       <Toaster
         position="top-center"
         reverseOrder={false}

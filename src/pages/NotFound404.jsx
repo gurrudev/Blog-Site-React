@@ -1,9 +1,14 @@
-import React from 'react'
+/* eslint-disable react/no-unescaped-entities */
+// import React from 'react'
+import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 
 const NotFound404 = () => {
     return (
         <>
+        <Helmet>
+            <title>Page Not Found | BlogHub</title>
+        </Helmet>
             <section className="mt-6">
                 <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
                     <div className="mx-auto max-w-screen-sm text-center">

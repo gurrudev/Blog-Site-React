@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Banner from '../components/Banner'
 import Cards from '../components/Cards'
 import FilterContainer from '../components/FilterContainer'
 import Cover from '../components/Cover'
 import { getBlogsData } from '../../api/apiCalls'
-import { useDispatch } from 'react-redux'
+// import { useDispatch } from 'react-redux'
 import CoverSkeleton from '../components/Skeleton/CoverSkeleton'
 import HomeCardSkeleton from '../components/Skeleton/FilterCardsSkeleton'
+import { Helmet } from 'react-helmet'
 
 const Home = () => {
 
     const [cardData, setCardData] = useState([])
 
-    const token = localStorage.getItem('token');
+    // const token = localStorage.getItem('token');
 
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
     const BlogCardData = async () => {
         const data = await getBlogsData()
@@ -25,7 +26,10 @@ const Home = () => {
         BlogCardData()
     }, [])
 
-    return (
+    return (<>
+        <Helmet>
+            <title>BlogHub</title>
+        </Helmet>
         <div className=''>
             <Banner />
             <Cards cardsData={cardData} totalCards={cardData.length || 8} isLoading={(cardData.length === 0) ? true : false} />
@@ -35,7 +39,7 @@ const Home = () => {
             {(cardData.length === 0) ?
                 <HomeCardSkeleton /> : <FilterContainer cardData={cardData} />
             }
-        </div>
+        </div></>
     )
 }
 

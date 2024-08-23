@@ -1,5 +1,6 @@
-import { createSlice, createAsyncThunk, createAction } from '@reduxjs/toolkit';
-import axios from 'axios';
+/* eslint-disable no-empty-pattern */
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+// import axios from 'axios';
 
 export const createBlog = createAsyncThunk('blogs/createBlog', async (data, { rejectWithValue }) => {
     try {

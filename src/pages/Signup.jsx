@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 import bgImg from '../assets/img/cover.jpeg'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { addUser } from '../redux/features/userSlice'
 import toast, { Toaster } from 'react-hot-toast';
+import { Helmet } from 'react-helmet'
 
 const Signup = () => {
 
@@ -46,6 +47,9 @@ const Signup = () => {
 
     return (
         <>
+        <Helmet>
+            <title>Sign Up | BlogHub</title>
+        </Helmet>
             <Toaster
                 position="top-right"
                 reverseOrder={false}

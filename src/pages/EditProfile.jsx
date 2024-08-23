@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import endpointForUser from '../utils/endpointForUser'
 import { FaUserCircle } from "react-icons/fa";
@@ -7,6 +7,7 @@ import ReactQuill from 'react-quill';
 import { useDispatch } from 'react-redux';
 import { userUpdate } from '../redux/features/userSlice';
 import { Toaster, toast } from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 const EditProfile = () => {
 
@@ -101,6 +102,9 @@ const EditProfile = () => {
 
     return (
         <>
+        <Helmet>
+            <title>Edit Profile | BlogHub</title>
+        </Helmet>
         <Toaster/>
             <div className='p-8 pt-4 lg:p-52 lg:pt-4 md:p-20 md:pt-4'>
                 <div>

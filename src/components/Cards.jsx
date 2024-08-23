@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useAutoAnimate } from '@formkit/auto-animate/react';
+/* eslint-disable react/prop-types */
+import { useState } from 'react';
+// import { useAutoAnimate } from '@formkit/auto-animate/react';
 import './Cards.css';
 import HomeCardSkeleton from './Skeleton/HomeCardSkeleton';
 import truncate from '../utils/Truncate';

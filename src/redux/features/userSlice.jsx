@@ -1,3 +1,4 @@
+/* eslint-disable no-empty-pattern */
 import { createSlice, createAsyncThunk, createAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 
