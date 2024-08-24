@@ -60,7 +60,7 @@ const BlogPost = () => {
         }
     }, [post.description]);
 
-    console.log(post.description);
+    // console.log(post.description);
 
     return (
         <>
