@@ -9,6 +9,7 @@ const keywordStyles = {
   'for': 'color: #ffb86c;',        // Orange
   'while': 'color: #ffb86c;',      // Orange
   'do': 'color: #ffb86c;',         // Orange
+  'git': 'color: #ffb86c;',         // Orange
   'int': 'color: #f1fa8c;',        // Yellow
   'float': 'color: #f1fa8c;',      // Yellow
   'boolean': 'color: #f1fa8c;',    // Yellow
