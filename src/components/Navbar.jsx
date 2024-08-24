@@ -14,7 +14,7 @@ function Navbar() {
   const [user, setUser] = useState({})
  
 
-  const token = localStorage.getItem('token')
+  const token = sessionStorage.getItem('token')
 
   const getUserData = async () => {
     try {

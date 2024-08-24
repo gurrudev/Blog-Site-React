@@ -32,8 +32,6 @@ const BlogPost = () => {
         }
     }, [id]);
 
-    // console.log(post)
-
     return (
         <>  
         <Helmet>

@@ -27,7 +27,7 @@ function UserProfile() {
   const [user, setUserData] = useState({})
   const [cardData, setCardData] = useState([])
 
-  const token = localStorage.getItem('token')
+  const token = sessionStorage.getItem('token')
   const dispatch = useDispatch()
 
   // console.log(cardData)

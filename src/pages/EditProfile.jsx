@@ -20,7 +20,7 @@ const EditProfile = () => {
 
     const navigate = useNavigate()
 
-    const token = localStorage.getItem('token')
+    const token = sessionStorage.getItem('token')
 
     const editorModules = {
         toolbar: [

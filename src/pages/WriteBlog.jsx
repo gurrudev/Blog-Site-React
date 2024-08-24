@@ -32,7 +32,7 @@ export const WriteBlog = () => {
 
   // console.log(user)
 
-  const token = localStorage.getItem('token')
+  const token = sessionStorage.getItem('token')
 
   // console.log(editorValue)
 

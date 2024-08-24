@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import './Banner.css'
 import Navbar from './Navbar'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import banner_img from '../assets/img/banner.jpg'
 import endpointForUser from "../utils/endpointForUser";
 
@@ -11,7 +11,7 @@ function Banner() {
 
     const [user, setUser] = useState({})
 
-    const token = localStorage.getItem('token')
+    const token = sessionStorage.getItem('token')
 
     const getUserData = async () => {
         try {

@@ -13,7 +13,7 @@ const Home = () => {
 
     const [cardData, setCardData] = useState([])
 
-    // const token = localStorage.getItem('token');
+    // const token = sessionStorage.getItem('token');
 
     // const dispatch = useDispatch()
 

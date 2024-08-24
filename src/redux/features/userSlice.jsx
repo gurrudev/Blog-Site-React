@@ -28,9 +28,9 @@ export const userLogin = createAsyncThunk('userDetails/userLogin', async (creden
         // Extract the token from the response
         const { token } = result;
 
-        // Store the token in localStorage or state (as per your application flow)
-        // For example, storing in localStorage:
-        localStorage.setItem('token', token);
+        // Store the token in sessionStorage or state (as per your application flow)
+        // For example, storing in sessionStorage:
+        sessionStorage.setItem('token', token);
 
         // Return the user data or necessary information from the response
         return result;
@@ -111,7 +111,7 @@ const userDetailsSlice = createSlice({
                 state.isLoading = false;
                 state.loggedInUser = null;
                 state.error = null;
-                localStorage.removeItem('token'); // Remove token from localStorage
+                sessionStorage.removeItem('token'); // Remove token from sessionStorage
             });
     },
 });
