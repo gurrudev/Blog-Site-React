@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 
 const FilterCardsSkeleton = () => {
     return (
         <div role="status" className="animate-pulse">
-            <h1 className='p-8 pb-0 pt-0 sm:p-20 sm:pt-0 sm:pb-10 text-2xl form-heading '>"Recomended"</h1>
+            <h1 className='p-8 pb-0 pt-0 sm:p-20 sm:pt-0 sm:pb-10 text-2xl form-heading '>{"Recommended Blogs"}</h1>
             <div className="filter-container p-8  sm:p-20 sm:pt-0 sm:pb-10">
 
                 <div className='hidden lg:block'>

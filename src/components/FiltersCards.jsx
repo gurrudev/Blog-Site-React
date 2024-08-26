@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react'
 import './FiltersCards.css'
 import { Link, useNavigate } from 'react-router-dom'
@@ -27,7 +29,7 @@ function FiltersCards({ cardData }) {
 
   return (
     <div>
-      <h1 className='p-8 pb-0 pt-0 sm:p-20 sm:pt-0 sm:pb-10 text-2xl form-heading'>"Recomended"</h1>
+      <h1 className='p-8 pb-0 pt-0 sm:p-20 sm:pt-0 sm:pb-10 text-2xl form-heading'>{"Recommended Blogs"}</h1>
       <div className="filter-container p-8  sm:p-20 sm:pt-0 sm:pb-10">
 
         <div className='hidden lg:block'>

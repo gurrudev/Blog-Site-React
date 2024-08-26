@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 // import { useAutoAnimate } from '@formkit/auto-animate/react';
@@ -29,7 +30,7 @@ function Cards({ cardsData, totalCards, isProfile, isLoading }) {
         if(window.confirm('Are you sure you want to delete this blog?')) 
         try {
             const response = await dispatch(deleteBlog(id))
-            console.log(response)
+            // console.log(response)
         } catch (error) {
             console.log(error.message)
         }

@@ -22,6 +22,14 @@ const Home = () => {
         setCardData(data?.blogs_data)
     }
 
+    Array.prototype.rev = function () {
+        let rev = []
+        for (let i = this.length - 1; i > 0; i--) {
+          rev.push(this[i])
+        }
+        return rev
+      }
+
     useEffect(() => {
         BlogCardData()
     }, [])
@@ -32,7 +40,7 @@ const Home = () => {
         </Helmet>
         <div className=''>
             <Banner />
-            <Cards cardsData={cardData} totalCards={cardData.length || 8} isLoading={(cardData.length === 0) ? true : false} />
+            <Cards cardsData={cardData.rev()} totalCards={cardData.length || 8} isLoading={(cardData.length === 0) ? true : false} />
             {(cardData.length === 0) ?
                 <CoverSkeleton /> : <Cover />
             }

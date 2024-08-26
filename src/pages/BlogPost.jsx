@@ -53,12 +53,14 @@ const BlogPost = () => {
     }
 
 
+
+
     useEffect(() => {
         if (codeRef.current) {
             // Apply syntax highlighting with custom JavaScript function
             highlightKeywords(codeRef.current);
         }
-    }, [post.description]);
+    }, [post?.description]);
 
     // console.log(post.description);
 
