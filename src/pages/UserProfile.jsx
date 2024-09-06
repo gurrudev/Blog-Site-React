@@ -76,7 +76,7 @@ function UserProfile() {
   useEffect(() => {
     getUserData()
     BlogCardData()
-  }, [cardData])
+  }, [])
 
   return (
     <>
