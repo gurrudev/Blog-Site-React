@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-// import { useAutoAnimate } from '@formkit/auto-animate/react';
 import './Cards.css';
 import HomeCardSkeleton from './Skeleton/HomeCardSkeleton';
 import truncate from '../utils/Truncate';
@@ -12,12 +11,10 @@ import { FaEdit } from 'react-icons/fa';
 import { MdDeleteForever } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { CiImageOn } from "react-icons/ci";
-import { useDispatch } from 'react-redux';
-import { deleteBlog } from '../redux/features/blogSlice';
 
-function Cards({ cardsData, totalCards, isProfile, isLoading }) {
-    const dispatch = useDispatch()
-    const [isOpen, setIsOpen] = useState({});
+function Cards({ cardsData, totalCards, isProfile, isLoading, deleteBlogData }) {
+
+    const [isOpen, setIsOpen] = useState([]);
 
     const toggleMenu = (cardIndex) => {
         setIsOpen((prevState) => ({
@@ -25,16 +22,6 @@ function Cards({ cardsData, totalCards, isProfile, isLoading }) {
             [cardIndex]: !prevState[cardIndex],
         }));
     };
-
-    const handleDeleteBlog = async (id) =>{
-        if(window.confirm('Are you sure you want to delete this blog?')) 
-        try {
-            const response = await dispatch(deleteBlog(id))
-            // console.log(response)
-        } catch (error) {
-            console.log(error.message)
-        }
-    }
 
     return (
         <>
@@ -110,7 +97,7 @@ function Cards({ cardsData, totalCards, isProfile, isLoading }) {
                                                                 <FaEdit className="text-xl mr-2" />
                                                                 Edit
                                                             </span>
-                                                            <span onClick={()=>handleDeleteBlog(item._id)}  className="flex items-center cursor-pointer px-4 py-2 text-gray-800 hover:bg-gray-100">
+                                                            <span onClick={()=>deleteBlogData(item._id)} className="flex items-center cursor-pointer px-4 py-2 text-gray-800 hover:bg-gray-100">
                                                                 <MdDeleteForever className="text-xl mr-2" />
                                                                 Delete
                                                             </span>

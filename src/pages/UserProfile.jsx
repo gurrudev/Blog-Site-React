@@ -6,7 +6,7 @@ import { MdDateRange } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import Cards from '../components/Cards';
 import { getBlogsData } from '../../api/apiCalls'
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import joinedDate from '../utils/joinedDate'
 import endpointForUser from '../utils/endpointForUser';
 import { BsThreeDots } from "react-icons/bs";
@@ -19,6 +19,7 @@ import { IoCreate } from "react-icons/io5";
 import RandomColor from '../utils/RandomColor';
 import UserProfileSkeleton from '../components/Skeleton/UserProfileSkeleton';
 import { Helmet } from 'react-helmet';
+import { deleteBlog } from '../redux/features/blogSlice';
 
 function UserProfile() {
 
@@ -26,9 +27,10 @@ function UserProfile() {
   const [isLoading, setIsLoading] = useState(true)
   const [user, setUserData] = useState({})
   const [cardData, setCardData] = useState([])
-
   const token = sessionStorage.getItem('token')
   const dispatch = useDispatch()
+
+  const [fetchBlog, setFetchBlog] = useState(false)
 
   // console.log(cardData)
 
@@ -43,7 +45,7 @@ function UserProfile() {
     try {
       const userData = await endpointForUser(token);
       setUserData(userData?.user)
-      if(userData?.user) return setIsLoading(false)
+      if (userData?.user) return setIsLoading(false)
     } catch (error) {
       // Handle errors
       console.error(error);
@@ -73,16 +75,31 @@ function UserProfile() {
     return RandomColor[index % RandomColor.length];
   };
 
+  const handleDeleteBlog = async (id) => {
+    if (window.confirm('Are you sure you want to delete this blog?'))
+      try {
+        const response = await dispatch(deleteBlog(id))
+        // console.log(response)
+
+        setFetchBlog(prev => !prev)
+      } catch (error) {
+        console.log(error.message)
+      }
+  }
+
+  useEffect(() => {
+    BlogCardData()
+  }, [fetchBlog])
+
   useEffect(() => {
     getUserData()
-    BlogCardData()
   }, [])
 
   return (
     <>
-    <Helmet>
-      <title>{!user ? "Profile | BlogHub": `${user?.name} | BlogHub` }</title>
-    </Helmet>
+      <Helmet>
+        <title>{!user ? "Profile | BlogHub" : `${user?.name} | BlogHub`}</title>
+      </Helmet>
       {isLoading ? <UserProfileSkeleton />
         : <div className="bg-gray-100">
           <div className="relative">
@@ -191,7 +208,8 @@ function UserProfile() {
         </div>
 
       }
-      <Cards cardsData={userBlogs} totalCards={userBlogs.length || 4} isLoading={(userBlogs.length === 0) ? true : false} isProfile />
+
+      <Cards cardsData={userBlogs} totalCards={userBlogs.length || 4} isLoading={(userBlogs.length === 0) ? true : false} deleteBlogData={handleDeleteBlog} isProfile />
 
     </>
   )
